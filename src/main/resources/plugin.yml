@@ -2,3 +2,19 @@ name: ChivalCore
 version: '${project.version}'
 main: au.chival.core.Main
 api-version: 1.8.8
+commands:
+  wtp:
+    description: /wtp <world> <player>
+    usage:  /wtp <world> <player>
+  wc:
+    description: /wc <world>
+    usage: /wc <world>
+  speed:
+    description: /speed <float>
+    usage: /speed <float>
+  menu:
+    description: /menu
+    usage: /menu
+permissions:
+  chival.wtp:
+    description: Allow changing of worlds
