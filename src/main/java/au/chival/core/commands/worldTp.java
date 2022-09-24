@@ -31,7 +31,7 @@ public class worldTp implements CommandExecutor {
                         victim.teleport(world.getSpawnLocation());
                         return true;
                     } else {
-                        player.sendMessage("Invalid Player!");
+                        player.sendMessage(ChatColor.DARK_RED + "Invalid Player!");
                         return true;
                     }
                 } else {
