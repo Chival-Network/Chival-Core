@@ -1,0 +1,4 @@
+name: ChivalCore
+version: '${project.version}'
+main: au.chival.core.Main
+api-version: 1.19
