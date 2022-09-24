@@ -3,6 +3,7 @@ package au.chival.core.formatting;
 import me.neznamy.tab.api.TabAPI;
 import me.neznamy.tab.api.TabPlayer;
 import net.luckperms.api.model.user.User;
+import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitRunnable;
 
@@ -14,7 +15,7 @@ public class formatting {
         new BukkitRunnable() {
             @Override
             public void run() {
-                while (player == null) {}
+                while (player == null) {player.sendMessage(ChatColor.DARK_RED + "Loading profile...");}
                 User user = luckPermsApi.getUserManager().getUser(player.getUniqueId());
                 TabAPI tabAPI = TabAPI.getInstance();
                 TabPlayer tabPlayer = tabAPI.getPlayer(player.getUniqueId());
