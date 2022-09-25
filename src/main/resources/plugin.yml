@@ -1,6 +1,6 @@
 name: ChivalCore
 version: '${project.version}'
-main: au.chival.core.Main
+main: au.chival.core.main
 api-version: 1.8.8
 commands:
   wtp:

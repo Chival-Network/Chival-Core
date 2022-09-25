@@ -22,7 +22,7 @@ public class joinQuit implements Listener {
             player.setAllowFlight(true);
         }
 
-        new formatting(player);
+        new formatting(player, true);
 
     }
     @EventHandler
