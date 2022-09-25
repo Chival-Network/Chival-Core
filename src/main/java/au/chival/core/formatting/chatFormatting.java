@@ -11,13 +11,6 @@ public class chatFormatting implements Listener {
     @EventHandler
     public void onChat(AsyncPlayerChatEvent event) {
         event.setFormat(event.getPlayer().getDisplayName() + ": " + event.getMessage());
-    }
-    @EventHandler
-    public void onCommand(PlayerCommandPreprocessEvent event) {
-        if (event.getMessage().contains("/lp")) {
-            for (Player player1: Bukkit.getOnlinePlayers()) {
-                new formatting(player1);
-            }
-        }
+        new formatting(event.getPlayer());
     }
 }
