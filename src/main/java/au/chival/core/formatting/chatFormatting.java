@@ -19,7 +19,7 @@ import static au.chival.core.main.plugin;
 public class chatFormatting implements Listener {
     @EventHandler
     public void onChat(AsyncPlayerChatEvent event) {
-        event.setFormat(event.getPlayer().getDisplayName() + ": " + event.getMessage());
+        event.setFormat(event.getPlayer().getDisplayName() + ": " + ChatColor.RESET + event.getMessage());
     }
     @EventHandler
     public void onCommand(PlayerCommandPreprocessEvent event) {
