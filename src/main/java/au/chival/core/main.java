@@ -8,6 +8,7 @@ import au.chival.core.listeners.blocks;
 import au.chival.core.listeners.damage;
 import au.chival.core.listeners.joinQuit;
 import au.chival.core.listeners.voidSaver;
+import au.chival.core.methods.repeat;
 import net.luckperms.api.LuckPerms;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
@@ -34,6 +35,7 @@ public final class main extends JavaPlugin {
         lobbyWorld = Bukkit.getWorld("world");
         spawnLocation = new Location(lobbyWorld, 21.5, 119, -14.5, 180, 0);
         plugin = this;
+        new repeat().repeatFormatting(1000, 7);
     }
     public void luckPerms() {
         RegisteredServiceProvider<LuckPerms> provider = Bukkit.getServicesManager().getRegistration(LuckPerms.class);
