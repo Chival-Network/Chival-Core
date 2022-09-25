@@ -8,6 +8,7 @@ import au.chival.core.listeners.blocks;
 import au.chival.core.listeners.damage;
 import au.chival.core.listeners.joinQuit;
 import au.chival.core.listeners.voidSaver;
+import au.chival.core.managers.TabManager;
 import au.chival.core.methods.repeat;
 import net.luckperms.api.LuckPerms;
 import org.bukkit.Bukkit;
@@ -20,6 +21,8 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public final class main extends JavaPlugin {
 
+    public TabManager tab;
+
     //lobbyWorld
     public static World lobbyWorld;
     public static Location spawnLocation;
@@ -29,6 +32,12 @@ public final class main extends JavaPlugin {
     //onEnable
     @Override
     public void onEnable() {
+        this.tab = new TabManager(this);
+
+        tab.addHeader("&bYou Are Playing On &6&lMC.CHIVAL.AU");
+
+        tab.showTab();
+
         registers();
         luckPerms();
 
