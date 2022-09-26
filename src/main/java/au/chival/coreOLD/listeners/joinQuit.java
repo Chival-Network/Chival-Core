@@ -1,7 +1,7 @@
-package au.chival.core.listeners;
+package au.chival.coreOLD.listeners;
 
-import au.chival.core.formatting.formatting;
-import au.chival.core.main;
+import au.chival.coreOLD.formatting.formatting;
+import au.chival.coreOLD.main;
 import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;

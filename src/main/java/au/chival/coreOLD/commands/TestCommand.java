@@ -1,7 +1,6 @@
-package au.chival.core.commands;
+package au.chival.coreOLD.commands;
 
-import au.chival.core.formatting.Tab;
-import au.chival.core.formatting.formatting;
+import au.chival.coreOLD.formatting.Tab;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;

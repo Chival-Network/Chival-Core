@@ -1,17 +1,14 @@
-package au.chival.core.formatting;
+package au.chival.coreOLD.formatting;
 
-import me.neznamy.tab.api.HeaderFooterManager;
 import me.neznamy.tab.api.TabAPI;
 import me.neznamy.tab.api.TabPlayer;
-import me.neznamy.tab.api.TablistFormatManager;
 import net.luckperms.api.model.user.User;
-import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitRunnable;
 
-import static au.chival.core.main.luckPermsApi;
-import static au.chival.core.main.plugin;
+import static au.chival.coreOLD.main.luckPermsApi;
+import static au.chival.coreOLD.main.plugin;
 
 public class formatting {
     public formatting(Player player, boolean useaync) {
@@ -51,7 +48,10 @@ public class formatting {
         tabAPI.getTablistFormatManager().setPrefix(tabPlayer, user.getCachedData().getMetaData().getPrefix());
         tabAPI.getTeamManager().setPrefix(tabPlayer, user.getCachedData().getMetaData().getPrefix());
 
-        new Tab(player, ChatColor.AQUA + "" + ChatColor.BOLD + "Welcome to " + ChatColor.GOLD + "Chival.AU", ChatColor.AQUA + "Do " + ChatColor.DARK_GREEN + "/help" + ChatColor.AQUA + " for help!");
+        new Tab(
+                player,
+                ChatColor.AQUA + "" + ChatColor.BOLD + "Welcome to " + ChatColor.GOLD + "Chival.AU",
+                 ChatColor.AQUA + "Do " + ChatColor.DARK_GREEN + "/help" + ChatColor.AQUA + " for help!");
 
     }
 }

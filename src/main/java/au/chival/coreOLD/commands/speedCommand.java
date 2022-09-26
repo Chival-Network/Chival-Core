@@ -1,4 +1,4 @@
-package au.chival.core.commands;
+package au.chival.coreOLD.commands;
 
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;

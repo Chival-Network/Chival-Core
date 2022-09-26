@@ -1,10 +1,10 @@
-package au.chival.core;
+package au.chival.coreOLD;
 
-import au.chival.core.formatting.formatting;
+import au.chival.coreOLD.formatting.formatting;
 import org.bukkit.Bukkit;
 import org.bukkit.scheduler.BukkitRunnable;
 
-import static au.chival.core.main.plugin;
+import static au.chival.coreOLD.main.plugin;
 
 public class repeat {
     public void repeatFormatting(int delay, int amount) {

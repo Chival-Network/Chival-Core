@@ -1,4 +1,4 @@
-package au.chival.core.formatting;
+package au.chival.coreOLD.formatting;
 
 import me.neznamy.tab.api.HeaderFooterManager;
 import me.neznamy.tab.api.TabAPI;
