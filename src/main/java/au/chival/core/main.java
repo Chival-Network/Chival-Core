@@ -1,9 +1,6 @@
 package au.chival.core;
 
-import au.chival.core.commands.TestCommand;
-import au.chival.core.commands.speedCommand;
-import au.chival.core.commands.worldCreate;
-import au.chival.core.commands.worldTp;
+import au.chival.core.commands.*;
 import au.chival.core.formatting.chatFormatting;
 import au.chival.core.listeners.blocks;
 import au.chival.core.listeners.damage;
@@ -48,6 +45,7 @@ public final class main extends JavaPlugin {
     public void registers() {
         PluginManager pm = Bukkit.getServer().getPluginManager();
         //registers
+        this.getCommand("rank").setExecutor(new rankCommand());
         this.getCommand("wtp").setExecutor(new worldTp());
         this.getCommand("wc").setExecutor(new worldCreate());
         this.getCommand("speed").setExecutor(new speedCommand());

@@ -51,7 +51,7 @@ public class formatting {
         tabAPI.getTablistFormatManager().setPrefix(tabPlayer, user.getCachedData().getMetaData().getPrefix());
         tabAPI.getTeamManager().setPrefix(tabPlayer, user.getCachedData().getMetaData().getPrefix());
 
-        new Tab(player, ChatColor.DARK_AQUA + "" + ChatColor.BOLD + "Welcome to " + ChatColor.DARK_GREEN + "Chival.AU", ChatColor.DARK_AQUA + "Do " + ChatColor.DARK_GREEN + "/help" + ChatColor.DARK_AQUA + " for help!");
+        new Tab(player, ChatColor.AQUA + "" + ChatColor.BOLD + "Welcome to " + ChatColor.GOLD + "Chival.AU", ChatColor.AQUA + "Do " + ChatColor.DARK_GREEN + "/help" + ChatColor.AQUA + " for help!");
 
     }
 }

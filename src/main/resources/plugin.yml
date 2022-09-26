@@ -3,6 +3,9 @@ version: '${project.version}'
 main: au.chival.core.main
 api-version: 1.8.8
 commands:
+  rank:
+    description: /rank <player> <rank>
+    usage: /rank <player> <rank>
   wtp:
     description: /wtp <world> <player>
     usage:  /wtp <world> <player>
