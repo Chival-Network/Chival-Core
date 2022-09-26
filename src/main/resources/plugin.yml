@@ -15,6 +15,7 @@ commands:
   menu:
     description: /menu
     usage: /menu
+  test:
 permissions:
   chival.wtp:
     description: Allow changing of worlds

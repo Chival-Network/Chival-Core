@@ -1,5 +1,6 @@
 package au.chival.core;
 
+import au.chival.core.commands.TestCommand;
 import au.chival.core.commands.speedCommand;
 import au.chival.core.commands.worldCreate;
 import au.chival.core.commands.worldTp;
@@ -51,6 +52,7 @@ public final class main extends JavaPlugin {
         this.getCommand("wtp").setExecutor(new worldTp());
         this.getCommand("wc").setExecutor(new worldCreate());
         this.getCommand("speed").setExecutor(new speedCommand());
+        this.getCommand("test").setExecutor(new TestCommand());
         pm.registerEvents(new blocks(), this);
         pm.registerEvents(new joinQuit(), this);
         pm.registerEvents(new damage(), this);

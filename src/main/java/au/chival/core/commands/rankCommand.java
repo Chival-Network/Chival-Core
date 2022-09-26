@@ -12,7 +12,7 @@ public class rankCommand implements CommandExecutor {
             if (sender instanceof Player) {
                 Player player = (Player) sender;
                 if (!player.hasPermission("chival.ranks")) {
-                    player.sendMessage(ChatColor.DARK_RED + "Error (1)");
+                    player.sendMessage(ChatColor.MAGIC + "jfabnskdfgbazdfhazdet");
                 }
             }
         return true;
