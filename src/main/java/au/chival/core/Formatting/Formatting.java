@@ -6,5 +6,11 @@ public class Formatting {
 
     public Formatting(Player player, String header, String footer) {
 
+
+    }
+
+    public Formatting(Player player) {
+
+
     }
 }
