@@ -1,4 +1,4 @@
-package au.chival.core.methods;
+package au.chival.core;
 
 import au.chival.core.formatting.formatting;
 import org.bukkit.Bukkit;

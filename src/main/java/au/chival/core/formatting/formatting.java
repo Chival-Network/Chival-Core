@@ -4,6 +4,7 @@ import me.neznamy.tab.api.HeaderFooterManager;
 import me.neznamy.tab.api.TabAPI;
 import me.neznamy.tab.api.TabPlayer;
 import net.luckperms.api.model.user.User;
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitRunnable;
@@ -50,6 +51,9 @@ public class formatting {
         tabAPI.getTeamManager().setPrefix(tabPlayer, user.getCachedData().getMetaData().getPrefix());
 
         HeaderFooterManager headerFooterManager = tabAPI.getHeaderFooterManager();
+        while (headerFooterManager == null) {
+           Bukkit.getLogger().info("Loading header/footer!");
+        }
         headerFooterManager.setHeader(tabPlayer, ChatColor.DARK_AQUA + "" + ChatColor.BOLD + "You are playing on " + ChatColor.DARK_GREEN + "Chival.AU");
 
     }

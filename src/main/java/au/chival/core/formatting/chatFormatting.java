@@ -1,6 +1,6 @@
 package au.chival.core.formatting;
 
-import au.chival.core.methods.repeat;
+import au.chival.core.repeat;
 import org.bukkit.ChatColor;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
