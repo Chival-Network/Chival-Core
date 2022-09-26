@@ -3,6 +3,7 @@ package au.chival.core.formatting;
 import me.neznamy.tab.api.HeaderFooterManager;
 import me.neznamy.tab.api.TabAPI;
 import me.neznamy.tab.api.TabPlayer;
+import me.neznamy.tab.api.TablistFormatManager;
 import net.luckperms.api.model.user.User;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -50,11 +51,7 @@ public class formatting {
         tabAPI.getTablistFormatManager().setPrefix(tabPlayer, user.getCachedData().getMetaData().getPrefix());
         tabAPI.getTeamManager().setPrefix(tabPlayer, user.getCachedData().getMetaData().getPrefix());
 
-        HeaderFooterManager headerFooterManager = tabAPI.getHeaderFooterManager();
-        while (headerFooterManager == null) {
-           Bukkit.getLogger().info("Loading header/footer!");
-        }
-        headerFooterManager.setHeader(tabPlayer, ChatColor.DARK_AQUA + "" + ChatColor.BOLD + "You are playing on " + ChatColor.DARK_GREEN + "Chival.AU");
+        new Tab(player, ChatColor.DARK_AQUA + "" + ChatColor.BOLD + "Welcome to " + ChatColor.DARK_GREEN + "Chival.AU", ChatColor.DARK_AQUA + "Do " + ChatColor.DARK_GREEN + "/help" + ChatColor.DARK_AQUA + " for help!");
 
     }
 }

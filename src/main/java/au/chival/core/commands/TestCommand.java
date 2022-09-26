@@ -1,5 +1,6 @@
 package au.chival.core.commands;
 
+import au.chival.core.formatting.Tab;
 import au.chival.core.formatting.formatting;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -10,7 +11,7 @@ public class TestCommand implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {
 
-        new formatting((Player) commandSender, true);
+        new Tab((Player) commandSender, "test header", "test footer");
         return true;
     }
 }
