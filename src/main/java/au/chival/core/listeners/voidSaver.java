@@ -1,7 +1,6 @@
 package au.chival.core.listeners;
 
 import au.chival.core.main;
-import au.chival.core.main;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerMoveEvent;
