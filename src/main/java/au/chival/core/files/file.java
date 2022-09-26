@@ -1,4 +1,4 @@
-package files;
+package au.chival.core.files;
 
 public class file {
 
