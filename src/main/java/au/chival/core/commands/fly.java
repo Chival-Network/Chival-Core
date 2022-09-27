@@ -23,7 +23,7 @@ public class fly implements CommandExecutor {
         }
         Player p = (Player) commandSender;
         if (p.hasPermission("chival.fly")) {
-            p.sendMessage("&cYou do not have permission to run this command!");
+            p.sendMessage(Util.Color("&cYou do not have permission to run this command!"));
             return false;
 
         }
