@@ -8,36 +8,30 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 public class speed implements CommandExecutor {
-
-    public speed() {
-
-
-    }
-
     public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {
         if (!(commandSender instanceof Player)) {
             commandSender.sendMessage("Player only command!");
-            return false;
+            return true;
         }
         Player player = (Player) commandSender;
-        if (player.hasPermission("chival.speed")) {
+        if (!(player.hasPermission("chival.speed"))) {
             commandSender.sendMessage(Util.Color("&cYou do not have permission to run this command!"));
-            return false;
+            return true;
         }
         if(strings.length == 0) {
             player.sendMessage(Util.Color("&cPlease Provide a Speed 1 - 10"));
-            return false;
+            return true;
         }
         int speed;
         try {
             speed = Integer.parseInt(strings[0]);
         } catch (NumberFormatException e) {
             player.sendMessage(Util.Color("&cPlease Provide A Speed 1 - 10"));
-            return false;
+            return true;
         }
         if (speed < 1 || speed > 10) {
             player.sendMessage(Util.Color("&cPlease Provide A Speed 1 - 10"));
-            return false;
+            return true;
         }
         if (player.isFlying()) {
             player.setFlySpeed((float)speed / 10);
@@ -49,7 +43,7 @@ public class speed implements CommandExecutor {
         } else {
             player.setWalkSpeed((float) speed / 10);
         }
-        player.sendMessage(Util.Color("&aSpeed set to &" + speed ));
+        player.sendMessage(Util.Color("&aSpeed set to " + ChatColor.DARK_GREEN + speed ));
         return true;
     }
 }

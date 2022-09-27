@@ -32,3 +32,4 @@ permissions:
     description: Allow changing of worlds
   chival.ranks:
       description: Allow changing peoples ranks
+  chival.speed:

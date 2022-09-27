@@ -9,35 +9,27 @@ import org.bukkit.entity.Player;
 
 public class fly implements CommandExecutor {
 
-    public fly() {
-
-
-    }
-
-
     public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {
         if (!(commandSender instanceof Player)) {
             commandSender.sendMessage("Player only Command!");
-            return false;
+            return true;
 
         }
-        Player p = (Player) commandSender;
-        if (p.hasPermission("chival.fly")) {
-            p.sendMessage(Util.Color("&cYou do not have permission to run this command!"));
-            return false;
+        Player player = (Player) commandSender;
+        if (!(player.hasPermission("chival.fly"))) {
+            player.sendMessage(Util.Color("&cYou do not have permission to run this command!"));
+            return true;
 
         }
-        if (!p.getAllowFlight()) {
-            p.setAllowFlight(true);
-            p.sendMessage(Util.Color("&a Flight Enabled"));
+        if (!player.getAllowFlight()) {
+            player.setAllowFlight(true);
+            player.sendMessage(Util.Color("&a Flight Enabled!"));
 
 
         } else {
-            p.setAllowFlight(false);
-            p.sendMessage(Util.Color("&cFlight Disabled"));
+            player.setAllowFlight(false);
+            player.sendMessage(Util.Color("&cFlight Disabled!"));
         }
         return true;
     }
-
-
 }
