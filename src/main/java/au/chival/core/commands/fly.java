@@ -18,18 +18,18 @@ public class fly implements CommandExecutor {
         Player player = (Player) commandSender;
         if (!(player.hasPermission("chival.fly"))) {
             player.sendMessage(Util.Color("&cYou do not have permission to run this command!"));
-            return true;
+            return false;
 
         }
         if (!player.getAllowFlight()) {
             player.setAllowFlight(true);
-            player.sendMessage(Util.Color("&a Flight Enabled!"));
+            player.sendMessage(Util.Color("&aFlight Enabled!"));
 
 
         } else {
             player.setAllowFlight(false);
             player.sendMessage(Util.Color("&cFlight Disabled!"));
         }
-        return true;
+        return false;
     }
 }
