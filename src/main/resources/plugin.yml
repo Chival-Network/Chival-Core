@@ -4,8 +4,8 @@ main: au.chival.core.main
 api-version: 1.8.8
 commands:
   fly:
-    description: /fly <player>
-    usage: /fly <fly>
+    description: /fly
+    usage: /fly
     aliases: f
   rank:
     description: /rank <player> <rank>
