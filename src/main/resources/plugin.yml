@@ -33,3 +33,4 @@ permissions:
   chival.ranks:
       description: Allow changing peoples ranks
   chival.speed:
+    description: Allow changing of speed

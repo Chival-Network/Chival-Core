@@ -1,5 +1,6 @@
 package au.chival.core;
 
+import au.chival.core.Events.JoinLeave;
 import au.chival.core.commands.fly;
 import au.chival.core.commands.speed;
 import org.bukkit.plugin.Plugin;
@@ -12,11 +13,16 @@ public final class Main extends JavaPlugin {
     @Override
     public void onEnable() {
         plugin = this;
+
+        reg();
     }
 
-    public void commandReg() {
+    public void reg() {
+        //command this.getCommand().setExecutor();
         this.getCommand("fly").setExecutor(new fly());
         this.getCommand("speed").setExecutor(new speed());
+        //listeners plugin.getServer().getPluginManager().registerEvents(new , plugin);
+        plugin.getServer().getPluginManager().registerEvents(new JoinLeave(), plugin);
     }
 
     @Override
