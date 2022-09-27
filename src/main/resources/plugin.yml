@@ -1,6 +1,6 @@
 name: ChivalCore
 version: '${project.version}'
-main: au.chival.core.main
+main: au.chival.core.Main
 api-version: 1.8.8
 commands:
   speed:
