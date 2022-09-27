@@ -12,11 +12,11 @@ public final class Main extends JavaPlugin {
     @Override
     public void onEnable() {
         plugin = this;
-        getCommand("fly").setExecutor(new fly());
-        getCommand("speed").setExecutor(new speed());
+    }
 
-
-
+    public void commandReg() {
+        this.getCommand("fly").setExecutor(new fly());
+        this.getCommand("speed").setExecutor(new speed());
     }
 
     @Override

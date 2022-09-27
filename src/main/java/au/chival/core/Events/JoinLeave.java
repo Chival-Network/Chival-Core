@@ -1,7 +1,6 @@
 package au.chival.core.Events;
 
 import au.chival.core.Formatting.Formatting;
-import au.chival.core.Main;
 import org.bukkit.ChatColor;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -19,7 +18,7 @@ public class JoinLeave implements Listener {
             public void run() {
                 while (event.getPlayer() == null) {}
                 if (event.getPlayer() == null) {event.getPlayer().kickPlayer(ChatColor.RED + "Failed to load profile... Please rejoin");}
-                new Formatting(event.getPlayer(), "", "");
+                new Formatting(event.getPlayer().getUniqueId(), true, "[BETA] Chival.cf", "/help for help");
             }
         }.runTaskAsynchronously(plugin);
     }
