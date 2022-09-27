@@ -3,6 +3,9 @@ version: '${project.version}'
 main: au.chival.core.main
 api-version: 1.8.8
 commands:
+  speed:
+    description: /speed
+    usage: /speed <speed 1 - 10>
   fly:
     description: /fly
     usage: /fly
@@ -16,9 +19,6 @@ commands:
   wc:
     description: /wc <world>
     usage: /wc <world>
-  speed:
-    description: /speed <float>
-    usage: /speed <float>
   menu:
     description: /menu
     usage: /menu

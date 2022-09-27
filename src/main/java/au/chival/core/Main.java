@@ -1,6 +1,7 @@
 package au.chival.core;
 
-import au.chival.core.commands.Fly;
+import au.chival.core.commands.fly;
+import au.chival.core.commands.speed;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -11,9 +12,10 @@ public final class Main extends JavaPlugin {
     @Override
     public void onEnable() {
         plugin = this;
+        getCommand("fly").setExecutor(new fly());
+        getCommand("speed").setExecutor(new speed());
 
 
-        getCommand("fly").setExecutor(new Fly());
 
     }
 
