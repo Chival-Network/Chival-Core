@@ -3,6 +3,10 @@ version: '${project.version}'
 main: au.chival.core.main
 api-version: 1.8.8
 commands:
+  fly:
+    description: /fly <player>
+    usage: /fly <fly>
+    aliases: f
   rank:
     description: /rank <player> <rank>
     usage: /rank <player> <rank>
@@ -22,6 +26,8 @@ commands:
     description: test stuff
     usage: /test <stuff>
 permissions:
+  chival.fly:
+    description: Allow use of Flight
   chival.wtp:
     description: Allow changing of worlds
   chival.ranks:
