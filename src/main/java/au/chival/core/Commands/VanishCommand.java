@@ -31,7 +31,11 @@ public class VanishCommand implements CommandExecutor {
             }
                 //EEEE THIS IS FOR VANISH <3
                 for(Player player : Bukkit.getOnlinePlayers()) {
-                    player.hidePlayer(p);
+
+                    if (vanished.contains(p)) {
+                    } else {
+                        player.hidePlayer(p);
+                    }
                 }
                 vanished.add(p);
                 p.sendMessage(Util.Color("&aYou Have Vanished"));
