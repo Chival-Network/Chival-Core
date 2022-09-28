@@ -1,19 +1,14 @@
 package au.chival.core.Events;
 
-import au.chival.core.Commands.VanishCommand;
 import au.chival.core.Formatting.Formatting;
-import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
-import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
-import org.bukkit.event.player.PlayerLoginEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.scheduler.BukkitRunnable;
 
 import static au.chival.core.Main.plugin;
-import static au.chival.core.Vanish.Vanish.vanished;
 
 public class JoinLeave implements Listener {
 
@@ -30,10 +25,7 @@ public class JoinLeave implements Listener {
             }
         }.runTaskAsynchronously(plugin);
 
-        if (event.getPlayer().hasPermission("chival.vanish")) {
-            vanished.put(event.getPlayer(), false);
-        }
-    }
+            }
 
     @EventHandler
     public void onLeave(PlayerQuitEvent event) {
