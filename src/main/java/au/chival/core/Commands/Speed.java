@@ -1,4 +1,4 @@
-package au.chival.core.commands;
+package au.chival.core.Commands;
 
 import au.chival.core.Util;
 import org.bukkit.ChatColor;
@@ -7,7 +7,7 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-public class speed implements CommandExecutor {
+public class Speed implements CommandExecutor {
     public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {
         if (!(commandSender instanceof Player)) {
             commandSender.sendMessage("Player only command!");

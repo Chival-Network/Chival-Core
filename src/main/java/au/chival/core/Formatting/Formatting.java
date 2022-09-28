@@ -16,6 +16,8 @@ public class Formatting {
 
     public Formatting(UUID uuid, boolean formatTab, String header, String footer) {
 
+        while (Bukkit.getPlayer(uuid) == null) {}
+
         Player player = Bukkit.getPlayer(uuid);
 
         LuckPerms luckPerms = LuckPermsProvider.get();
