@@ -11,12 +11,11 @@ import org.bukkit.entity.Player;
 public class Flys implements CommandExecutor {
 
     public boolean onCommand(CommandSender sender, Command command, String c, String[] args) {
-        Player send = (Player) sender;
-        Player target = null;
         if (command.getName().equalsIgnoreCase("Fly")) {
             if (sender instanceof Player) {
+                Player player = (Player) sender;
                 if (args.length == 1) {
-                    target = Bukkit.getServer().getPlayer(args[0]);
+                    Player target = Bukkit.getServer().getPlayer(args[0]);
                     if (target != null) {
                         if (!target.getAllowFlight()) {
                             target.setAllowFlight(true);
@@ -27,9 +26,9 @@ public class Flys implements CommandExecutor {
                             return true;
                         }
                     } else if (args.length == 0) {
-                        if (!send.getAllowFlight()) {
-                            send.setAllowFlight(true);
-                            send.sendMessage(Util.Color("&aYou are now Flying!"));
+                        if (!player.getAllowFlight()) {
+                            player.setAllowFlight(true);
+                            player.sendMessage(Util.Color("&aYou are now Flying!"));
                             return true;
                         } else if (args.length > 1) {
                             sender.sendMessage(Util.Color("&cWrong Format! Do /fly <Player>"));
