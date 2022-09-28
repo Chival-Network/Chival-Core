@@ -7,6 +7,7 @@ import net.luckperms.api.LuckPerms;
 import net.luckperms.api.LuckPermsProvider;
 import net.luckperms.api.model.user.User;
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
 
@@ -23,6 +24,10 @@ public class Formatting {
         LuckPerms luckPerms = LuckPermsProvider.get();
         User luckPermUser = luckPerms.getUserManager().getUser(player.getUniqueId());
         String prefix = luckPermUser.getCachedData().getMetaData().getPrefix();
+
+        if (prefix == null) {
+            prefix = (ChatColor.GRAY + "");
+        }
 
         TabAPI tabAPI = TabAPI.getInstance();
         TabPlayer tabPlayer = tabAPI.getPlayer(player.getUniqueId());

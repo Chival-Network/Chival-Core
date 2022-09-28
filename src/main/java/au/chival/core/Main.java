@@ -5,8 +5,16 @@ import au.chival.core.Events.Chat;
 import au.chival.core.Events.JoinLeave;
 import au.chival.core.Events.UpdateUser;
 import net.luckperms.api.LuckPermsProvider;
+import org.bukkit.Bukkit;
+import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
+
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.StandardCopyOption;
 
 public final class Main extends JavaPlugin {
 
@@ -14,6 +22,19 @@ public final class Main extends JavaPlugin {
 
     @Override
     public void onEnable() {
+
+        new File(getDataFolder(), "").mkdirs();
+        FileConfiguration arenasConfig;
+        File arenasFile = new File(this.plugin.getDataFolder(), "config.yml");
+        if (!(arenasFile.exists())) {
+            try {
+                arenasFile.createNewFile();
+                Files.copy(getClass().getClassLoader().getResourceAsStream("config.yml"), arenasFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
+            } catch (IOException e) {
+                Bukkit.getLogger().info("UNABLE TO COPY YML FROM JAR |[ " + e + " ]|");
+            }
+        }
+        arenasConfig = YamlConfiguration.loadConfiguration(arenasFile);
 
         plugin = this;
 

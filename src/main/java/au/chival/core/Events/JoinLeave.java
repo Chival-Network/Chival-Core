@@ -8,6 +8,8 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
+import org.bukkit.event.player.PlayerLoginEvent;
+import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.scheduler.BukkitRunnable;
 
 import static au.chival.core.Main.plugin;
@@ -16,6 +18,7 @@ public class JoinLeave implements Listener {
 
     @EventHandler
     public void onJoin(PlayerJoinEvent event) {
+        event.setJoinMessage(null);
         new BukkitRunnable() {
             @Override
             public void run() {
@@ -31,5 +34,9 @@ public class JoinLeave implements Listener {
                 event.getPlayer().hidePlayer(p);
             }
         }
+    }
+
+    public void onLeave(PlayerQuitEvent event) {
+        event.setQuitMessage(null);
     }
 }
