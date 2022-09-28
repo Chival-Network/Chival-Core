@@ -31,14 +31,14 @@ public class JoinLeave implements Listener {
             }
         }.runTaskAsynchronously(plugin);
 
-        for (Player target : Bukkit.getOnlinePlayers()) {
-            if (!target.hasPermission("chival.cansee")) {
-                target.hidePlayer((Player) vanished);
-            }
+        if (event.getPlayer().hasPermission("chival.vanish")) {
+            vanished.add(event.getPlayer());
         }
     }
 
+    @EventHandler
     public void onLeave(PlayerQuitEvent event) {
+        event.getPlayer().kickPlayer(ChatColor.DARK_RED + "CYA!");
         event.setQuitMessage(null);
     }
 }
