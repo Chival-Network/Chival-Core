@@ -20,7 +20,7 @@ public class Errors {
 
     public static void noArgs(CommandSender sender, String other) {
 
-        sender.sendMessage(ChatColor.RESET + "Invalid argument? Was that a typo? Type " + ChatColor.DARK_GREEN + "/help" + ChatColor.RESET + " for help!");
+        sender.sendMessage(ChatColor.RESET + "Invalid args? Was that a typo? Type " + ChatColor.DARK_GREEN + "/help" + ChatColor.RESET + " for help!");
     }
 
     public static void invalidObject(CommandSender sender, String wasWasInvalid) {
