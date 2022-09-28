@@ -2,7 +2,7 @@ package au.chival.core;
 
 import au.chival.core.Events.JoinLeave;
 import au.chival.core.commands.fly;
-import au.chival.core.commands.gmc;
+import au.chival.core.commands.gamemode;
 import au.chival.core.commands.speed;
 import au.chival.core.commands.vanish;
 import org.bukkit.Bukkit;
@@ -26,7 +26,7 @@ public final class Main extends JavaPlugin {
 
     public void reg() {
         //command this.getCommand().setExecutor();
-        this.getCommand("gmc").setExecutor(new gmc());
+        this.getCommand("mode").setExecutor(new gamemode());
         this.getCommand("vanish").setExecutor(new vanish());
         this.getCommand("fly").setExecutor(new fly());
         this.getCommand("speed").setExecutor(new speed());
