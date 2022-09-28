@@ -13,7 +13,7 @@ commands:
     description: /speed
     usage: /speed <speed 1 - 10>
   fly:
-    description: /fly
+    description: /fly <player>
     aliases: f
   rank:
     description: /rank <player> <rank>
