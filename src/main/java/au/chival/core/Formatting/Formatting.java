@@ -28,6 +28,9 @@ public class Formatting {
         if (prefix == null) {
             prefix = (ChatColor.GRAY + "");
         }
+        if (prefix == null) {
+            prefix = ("");
+        }
 
         TabAPI tabAPI = TabAPI.getInstance();
         TabPlayer tabPlayer = tabAPI.getPlayer(player.getUniqueId());
