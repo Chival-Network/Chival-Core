@@ -4,11 +4,15 @@ import au.chival.core.Events.JoinLeave;
 import au.chival.core.commands.fly;
 import au.chival.core.commands.speed;
 import au.chival.core.commands.vanish;
+import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public final class Main extends JavaPlugin {
 
@@ -30,16 +34,19 @@ public final class Main extends JavaPlugin {
         //listeners plugin.getServer().getPluginManager().registerEvents(new , plugin);
         plugin.getServer().getPluginManager().registerEvents(new JoinLeave(), plugin);
     }
-    @EventHandler
-    public void onPlayerJoin(PlayerJoinEvent e){
-        Player p = e.getPlayer();
-        for(Player player : vanish.vanished){
-            p.hidePlayer(player);
-        }
-    }
 
     @Override
     public void onDisable() {
 
+
+    }
+
+    @EventHandler
+    public void onPlayerJoinVoid(PlayerJoinEvent e) {
+        for (Player p : Bukkit.getOnlinePlayers()) {
+            if (vanish.vanished.contains(p)) {
+                e.getPlayer().hidePlayer(p);
+            }
+        }
     }
 }
