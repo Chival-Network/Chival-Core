@@ -3,29 +3,12 @@ package au.chival.core.Commands;
 import au.chival.core.Util;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
+import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import org.bukkit.plugin.PluginDescriptionFile;
-import org.bukkit.plugin.java.JavaPlugin;
-
-import java.util.logging.Logger;
 
 
-public class Flying extends JavaPlugin {
-
-    public final Logger logger = Logger.getLogger("Minecraft");
-
-    @Override
-    public void onEnable() {
-        PluginDescriptionFile pdfFile = this.getDescription();
-        this.logger.info(pdfFile.getName() + " V " + pdfFile.getVersion() + " is now enabled.");
-    }
-
-    @Override
-    public void onDisable() {
-        PluginDescriptionFile pdfFile = this.getDescription();
-        this.logger.info(pdfFile.getName() + " V " + pdfFile.getVersion() + " is now disabled.");
-    }
+public class Flys implements CommandExecutor {
 
     public boolean onCommand(CommandSender sender, Command command, String c, String[] args) {
         Player send = (Player) sender;
@@ -40,7 +23,7 @@ public class Flying extends JavaPlugin {
                             target.sendMessage(Util.Color("&aPlayer is now Flying!"));
                             return true;
                         } else if (target == null) {
-                            sender.sendMessage(Util.Color("&cPlayer is Offine :("));
+                            sender.sendMessage(Util.Color("&cPlayer is Offline"));
                             return true;
                         }
                     } else if (args.length == 0) {

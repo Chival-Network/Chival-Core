@@ -5,10 +5,6 @@ import au.chival.core.Events.Chat;
 import au.chival.core.Events.JoinLeave;
 import au.chival.core.Events.UpdateUser;
 import net.luckperms.api.LuckPermsProvider;
-import org.bukkit.Bukkit;
-import org.bukkit.entity.Player;
-import org.bukkit.event.EventHandler;
-import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -31,6 +27,7 @@ public final class Main extends JavaPlugin {
         this.getCommand("fly").setExecutor(new Fly());
         this.getCommand("speed").setExecutor(new Speed());
         this.getCommand("rank").setExecutor(new Ranks());
+        this.getCommand("flys").setExecutor(new Flys());
         //listeners plugin.getServer().getPluginManager().registerEvents(new , plugin);
         plugin.getServer().getPluginManager().registerEvents(new JoinLeave(), plugin);
         plugin.getServer().getPluginManager().registerEvents(new Chat(), plugin);
