@@ -12,7 +12,7 @@ import java.util.ArrayList;
 public class VanishCommand implements CommandExecutor {
 
 
-    public ArrayList<Player> vanished = new ArrayList<>();
+    public static ArrayList<Player> vanished = new ArrayList<>();
 
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] strings) {
