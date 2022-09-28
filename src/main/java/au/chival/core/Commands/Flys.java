@@ -11,7 +11,7 @@ import org.bukkit.entity.Player;
 public class Flys implements CommandExecutor {
 
     public boolean onCommand(CommandSender sender, Command command, String c, String[] args) {
-        if (command.getName().equalsIgnoreCase("Fly")) {
+
             if (sender instanceof Player) {
                 Player player = (Player) sender;
                 if (args.length == 1) {
@@ -37,7 +37,6 @@ public class Flys implements CommandExecutor {
                     }
                 }
             }
-        }
         return false;
     }
 }

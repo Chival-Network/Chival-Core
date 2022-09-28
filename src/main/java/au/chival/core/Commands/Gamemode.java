@@ -9,7 +9,6 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 public class Gamemode implements CommandExecutor {
-    @Override
     public boolean onCommand(CommandSender sender, Command command, String commandLabel, String[] args) {
         Player player = (Player) sender;
         Player target = (Player) Bukkit.getServer().getOnlinePlayers();
