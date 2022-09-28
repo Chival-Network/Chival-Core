@@ -30,6 +30,7 @@ public class VanishCommand implements CommandExecutor {
                 return true;
             }
                 //EEEE THIS IS FOR VANISH <3
+                vanished.add(p);
                 for(Player player : Bukkit.getOnlinePlayers()) {
 
                     if (vanished.contains(p)) {
@@ -37,7 +38,6 @@ public class VanishCommand implements CommandExecutor {
                         player.hidePlayer(p);
                     }
                 }
-                vanished.add(p);
                 p.sendMessage(Util.Color("&aYou Have Vanished"));
             return true;
         }
