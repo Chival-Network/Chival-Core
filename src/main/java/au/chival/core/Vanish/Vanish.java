@@ -38,6 +38,9 @@ public class Vanish {
                 player1.hidePlayer(player);
             }
         }
+
+        player.sendMessage(Util.Color("&2You Have Vanished"));
+
     }
 
     public void showhPlayer (Player player) {
