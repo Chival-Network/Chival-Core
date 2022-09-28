@@ -28,8 +28,8 @@ public class Formatting {
         if (prefix == null) {
             prefix = (ChatColor.GRAY + "");
         }
-        if (prefix == null) {
-            prefix = ("");
+        if (prePreFix == null) {
+            prePreFix = ("");
         }
 
         TabAPI tabAPI = TabAPI.getInstance();
