@@ -3,12 +3,17 @@ version: '${project.version}'
 main: au.chival.core.Main
 api-version: 1.8.8
 commands:
+  mode:
+    description:  /gmc
+    aliases: gm
+  vanish:
+    description: /vanish
+    aliases: v
   speed:
     description: /speed
     usage: /speed <speed 1 - 10>
   fly:
     description: /fly
-    usage: /fly
     aliases: f
   rank:
     description: /rank <player> <rank>

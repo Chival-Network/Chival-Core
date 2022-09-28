@@ -1,9 +1,10 @@
 package au.chival.core.Events;
 
+import au.chival.core.Commands.VanishCommand;
 import au.chival.core.Formatting.Formatting;
-import net.luckperms.api.LuckPerms;
-import net.luckperms.api.LuckPermsProvider;
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
@@ -18,12 +19,17 @@ public class JoinLeave implements Listener {
         new BukkitRunnable() {
             @Override
             public void run() {
+                event.getPlayer().sendMessage(ChatColor.GREEN + "Loading profile...");
                 while (event.getPlayer() == null) {}
-                new Formatting(event.getPlayer().getUniqueId(), true, "[BETA] Chival.AU", "/help for help");
+                if (event.getPlayer() == null) {event.getPlayer().kickPlayer(ChatColor.RED + "Failed to load profile... Please rejoin");}
+                new Formatting(event.getPlayer().getUniqueId(), true, "&bYou Are Playing On &6&lMC.CHIVAL.AU"  , "&bDo &2/help &bfor help");
             }
         }.runTaskAsynchronously(plugin);
-        System.out.println("=========================================================PLAYERJOIN===============================================================");
-        LuckPerms luckPerms = LuckPermsProvider.get();
-        new UpdateUser(plugin, luckPerms);
+
+        for (Player p : Bukkit.getOnlinePlayers()) {
+            if (VanishCommand.vanished.contains(p)) {
+                event.getPlayer().hidePlayer(p);
+            }
+        }
     }
 }
