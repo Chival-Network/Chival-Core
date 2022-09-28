@@ -1,7 +1,6 @@
 package au.chival.core.commands;
 
 import au.chival.core.Util;
-import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -30,6 +29,8 @@ public class fly implements CommandExecutor {
             player.setAllowFlight(false);
             player.sendMessage(Util.Color("&cFlight Disabled!"));
         }
+
         return false;
+
     }
 }
