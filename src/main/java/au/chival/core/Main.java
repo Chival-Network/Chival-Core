@@ -4,7 +4,6 @@ import au.chival.core.Events.JoinLeave;
 import au.chival.core.commands.fly;
 import au.chival.core.commands.gamemode;
 import au.chival.core.commands.speed;
-import au.chival.core.commands.vanish;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;

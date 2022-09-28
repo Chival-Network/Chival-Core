@@ -14,7 +14,7 @@ public class gamemode implements CommandExecutor {
         Player player = (Player) sender;
         Player target = (Player) Bukkit.getServer().getOnlinePlayers();
         if (commandLabel.equalsIgnoreCase("mode")){
-            if (sender.hasPermission("gm.creative")){
+            if (sender.hasPermission("chival.gm")){
                 if (args.length == 1){
                     if (args[0].equalsIgnoreCase("c")){
                         setCreative(target);
