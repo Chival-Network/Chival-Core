@@ -25,6 +25,7 @@ public class VanishCommand implements CommandExecutor {
             if(vanished.contains(p)){
                 //NERY THIS IS FOR UNVANISH
                 vanished.remove(p);
+                new Formatting(p.getUniqueId(), false, null, null, null);
                 for(Player player : Bukkit.getOnlinePlayers()) {
                     player.showPlayer(p);
                 }
