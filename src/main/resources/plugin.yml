@@ -18,6 +18,7 @@ commands:
   rank:
     description: /rank <player> <rank>
     usage: /rank <player> <rank>
+    aliases: ranks
   wtp:
     description: /wtp <world> <player>
     usage:  /wtp <world> <player>

@@ -40,10 +40,7 @@ public class Ranks implements CommandExecutor {
 
         user.setPrimaryGroup(String.valueOf(group));
 
-        if (args[2] == null) {
-            commandSender.sendMessage(ChatColor.DARK_AQUA + "Changed " + ChatColor.DARK_GREEN + user.getUsername() + ChatColor.DARK_AQUA + "'s rank to " + ChatColor.RESET + group.getCachedData().getMetaData().getPrefix());
-            return true;
-        }
+        commandSender.sendMessage(ChatColor.DARK_AQUA + "Changed " + ChatColor.DARK_GREEN + user.getUsername() + ChatColor.DARK_AQUA + "'s rank to " + ChatColor.RESET + group.getCachedData().getMetaData().getPrefix());
 
         return true;
     }

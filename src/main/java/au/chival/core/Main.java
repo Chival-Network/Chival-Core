@@ -1,10 +1,10 @@
 package au.chival.core;
 
-import au.chival.core.Commands.Fly;
-import au.chival.core.Commands.Gamemode;
-import au.chival.core.Commands.Speed;
-import au.chival.core.Commands.VanishCommand;
+import au.chival.core.Commands.*;
+import au.chival.core.Events.Chat;
 import au.chival.core.Events.JoinLeave;
+import au.chival.core.Events.UpdateUser;
+import net.luckperms.api.LuckPermsProvider;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -30,8 +30,12 @@ public final class Main extends JavaPlugin {
         this.getCommand("vanish").setExecutor(new VanishCommand());
         this.getCommand("fly").setExecutor(new Fly());
         this.getCommand("speed").setExecutor(new Speed());
+        this.getCommand("rank").setExecutor(new Ranks());
         //listeners plugin.getServer().getPluginManager().registerEvents(new , plugin);
         plugin.getServer().getPluginManager().registerEvents(new JoinLeave(), plugin);
+        plugin.getServer().getPluginManager().registerEvents(new Chat(), plugin);
+        //luckPerms
+        new UpdateUser(plugin, LuckPermsProvider.get());
     }
 
     @Override
