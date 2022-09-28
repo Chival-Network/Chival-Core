@@ -16,9 +16,6 @@ import java.util.LinkedList;
 
 public class VanishCommand implements CommandExecutor {
 
-
-    public static LinkedList<Player> vanished = new LinkedList<>();
-
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] strings) {
         if (sender instanceof Player) {
