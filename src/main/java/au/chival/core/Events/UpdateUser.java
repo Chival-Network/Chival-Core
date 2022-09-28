@@ -21,7 +21,7 @@ public class UpdateUser {
 
     private void onUserDataRecalculateEvent(UserDataRecalculateEvent event) {
         try {
-            new Formatting(event.getUser().getUniqueId(), false, null, null);
+            new Formatting(event.getUser().getUniqueId(), false, null, null, null);
         } catch (Exception e) {}
     }
 }
