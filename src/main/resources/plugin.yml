@@ -15,6 +15,9 @@ commands:
   fly:
     description: /fly <player>
     aliases: f
+  flys:
+    description: /fly <player>
+    aliases: fs
   rank:
     description: /rank <player> <rank>
     usage: /rank <player> <rank>
