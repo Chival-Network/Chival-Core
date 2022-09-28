@@ -1,9 +1,7 @@
 package au.chival.core;
 
 import au.chival.core.Commands.*;
-import au.chival.core.Events.Chat;
-import au.chival.core.Events.JoinLeave;
-import au.chival.core.Events.UpdateUser;
+import au.chival.core.Events.*;
 import net.luckperms.api.LuckPermsProvider;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -52,6 +50,8 @@ public final class Main extends JavaPlugin {
         //listeners plugin.getServer().getPluginManager().registerEvents(new , plugin);
         plugin.getServer().getPluginManager().registerEvents(new JoinLeave(), plugin);
         plugin.getServer().getPluginManager().registerEvents(new Chat(), plugin);
+        plugin.getServer().getPluginManager().registerEvents(new PlayerDeath(), plugin);
+        plugin.getServer().getPluginManager().registerEvents(new PlayerDamage(), plugin);
         //luckPerms
         new UpdateUser(plugin, LuckPermsProvider.get());
     }
