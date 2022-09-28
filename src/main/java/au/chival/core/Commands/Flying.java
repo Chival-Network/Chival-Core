@@ -33,7 +33,7 @@ public class Flying extends JavaPlugin {
         if (command.getName().equalsIgnoreCase("Fly")) {
             if (sender instanceof Player) {
                 if (args.length == 1) {
-                    target = Bukkit.getServer().getPlayer(args [0]);
+                    target = Bukkit.getServer().getPlayer(args[0]);
                     if (target != null) {
                         if (!target.getAllowFlight()) {
                             target.setAllowFlight(true);
@@ -43,11 +43,19 @@ public class Flying extends JavaPlugin {
                             sender.sendMessage(Util.Color("&cPlayer is Offine :("));
                             return true;
                         }
+                    } else if (args.length == 0) {
+                        if (!send.getAllowFlight()) {
+                            send.setAllowFlight(true);
+                            send.sendMessage(Util.Color("&aYou are now Flying!"));
+                            return true;
+                        } else if (args.length > 1) {
+                            sender.sendMessage(Util.Color("&cWrong Format! Do /fly <Player>"));
+                            return true;
+                        }
                     }
-
-
                 }
             }
         }
+        return false;
     }
 }
