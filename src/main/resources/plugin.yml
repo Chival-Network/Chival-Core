@@ -3,6 +3,8 @@ version: '${project.version}'
 main: au.chival.core.Main
 api-version: 1.8.8
 commands:
+  gmc:
+    description:  /gmc
   vanish:
     description: /vanish
     aliases: v
