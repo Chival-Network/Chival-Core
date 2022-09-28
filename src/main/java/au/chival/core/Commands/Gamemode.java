@@ -13,7 +13,7 @@ public class Gamemode implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command command, String commandLabel, String[] args) {
         Player player = (Player) sender;
         Player target = (Player) Bukkit.getServer().getOnlinePlayers();
-        if (commandLabel.equalsIgnoreCase("mode")){
+        if (commandLabel.equalsIgnoreCase("gamemode")){
             if (sender.hasPermission("chival.gm")){
                 if (args.length == 1){
                     if (args[0].equalsIgnoreCase("c")){
