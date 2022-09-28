@@ -13,6 +13,7 @@ import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.scheduler.BukkitRunnable;
 import au.chival.core.Commands.VanishCommand.*;
 
+import static au.chival.core.Commands.VanishCommand.vanished;
 import static au.chival.core.Main.plugin;
 
 public class JoinLeave implements Listener {
@@ -32,7 +33,7 @@ public class JoinLeave implements Listener {
 
         for (Player target : Bukkit.getOnlinePlayers()) {
             if (!target.hasPermission("chival.cansee")) {
-                target.hidePlayer(vanished);
+                target.hidePlayer((Player) vanished);
             }
         }
     }
