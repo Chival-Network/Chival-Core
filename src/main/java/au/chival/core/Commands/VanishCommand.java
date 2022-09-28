@@ -1,8 +1,10 @@
 package au.chival.core.Commands;
 
 import au.chival.core.Errors;
+import au.chival.core.Formatting.Formatting;
 import au.chival.core.Util;
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -31,6 +33,7 @@ public class VanishCommand implements CommandExecutor {
             }
                 //EEEE THIS IS FOR VANISH <3
                 vanished.add(p);
+                new Formatting(p.getUniqueId(), false, null, null, ChatColor.DARK_GREEN + "[V] " + ChatColor.RESET);
                 for(Player player : Bukkit.getOnlinePlayers()) {
 
                     if (vanished.contains(p)) {

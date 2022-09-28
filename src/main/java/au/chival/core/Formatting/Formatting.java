@@ -15,7 +15,7 @@ import java.util.UUID;
 
 public class Formatting {
 
-    public Formatting(UUID uuid, boolean formatTab, String header, String footer) {
+    public Formatting(UUID uuid, boolean formatTab, String header, String footer, String prePreFix) {
 
         while (Bukkit.getPlayer(uuid) == null) {}
 
@@ -32,9 +32,9 @@ public class Formatting {
         TabAPI tabAPI = TabAPI.getInstance();
         TabPlayer tabPlayer = tabAPI.getPlayer(player.getUniqueId());
 
-        tabAPI.getTeamManager().setPrefix(tabPlayer, prefix);
-        tabAPI.getTablistFormatManager().setPrefix(tabPlayer, prefix);
-        player.setDisplayName(prefix + player.getName());
+        tabAPI.getTeamManager().setPrefix(tabPlayer, prePreFix + prefix);
+        tabAPI.getTablistFormatManager().setPrefix(tabPlayer, prePreFix + prefix);
+        player.setDisplayName(prePreFix + prefix + player.getName());
 
         if (formatTab) {
             formattingTab(tabPlayer, header, footer);

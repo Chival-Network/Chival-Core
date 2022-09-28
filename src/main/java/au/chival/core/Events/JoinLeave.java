@@ -27,7 +27,7 @@ public class JoinLeave implements Listener {
                 event.getPlayer().sendMessage(ChatColor.GREEN + "Loading profile...");
                 while (event.getPlayer() == null) {}
                 if (event.getPlayer() == null) {event.getPlayer().kickPlayer(ChatColor.RED + "Failed to load profile... Please rejoin");}
-                new Formatting(event.getPlayer().getUniqueId(), true, "&bYou Are Playing On &6&lMC.CHIVAL.AU"  , "&bDo &2/help &bfor help");
+                new Formatting(event.getPlayer().getUniqueId(), true, "&bYou Are Playing On &6&lMC.CHIVAL.AU"  , "&bDo &2/help &bfor help", null);
             }
         }.runTaskAsynchronously(plugin);
 
