@@ -35,6 +35,8 @@ commands:
     description: test stuff
     usage: /test <stuff>
 permissions:
+  chival.vanish:
+    description: Allows use of Vanish
   chival.fly:
     description: Allow use of Flight
   chival.wtp:
