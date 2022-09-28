@@ -23,18 +23,18 @@ public final class Main extends JavaPlugin {
     @Override
     public void onEnable() {
 
-        new File(getDataFolder(), "").mkdirs();
-        FileConfiguration arenasConfig;
-        File arenasFile = new File(this.plugin.getDataFolder(), "config.yml");
-        if (!(arenasFile.exists())) {
-            try {
-                arenasFile.createNewFile();
-                Files.copy(getClass().getClassLoader().getResourceAsStream("config.yml"), arenasFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
-            } catch (IOException e) {
-                Bukkit.getLogger().info("UNABLE TO COPY YML FROM JAR |[ " + e + " ]|");
-            }
-        }
-        arenasConfig = YamlConfiguration.loadConfiguration(arenasFile);
+        //new File(getDataFolder(), "").mkdirs();
+        //FileConfiguration arenasConfig;
+        //File arenasFile = new File(this.plugin.getDataFolder(), "config.yml");
+        //if (!(arenasFile.exists())) {
+        //    try {
+        //        arenasFile.createNewFile();
+        //        Files.copy(getClass().getClassLoader().getResourceAsStream("config.yml"), arenasFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
+        //    } catch (IOException e) {
+        //        Bukkit.getLogger().info("UNABLE TO COPY YML FROM JAR |[ " + e + " ]|");
+        //    }
+        //}
+        //arenasConfig = YamlConfiguration.loadConfiguration(arenasFile);
 
         plugin = this;
 
