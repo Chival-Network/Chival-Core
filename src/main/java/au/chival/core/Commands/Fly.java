@@ -23,7 +23,7 @@ public class Fly implements CommandExecutor {
         }
         if (!player.getAllowFlight()) {
             player.setAllowFlight(true);
-            player.sendMessage(ChatColor.DARK_GREEN + "Fling enabled!");
+            player.sendMessage(ChatColor.DARK_GREEN + "Flight Enabled!");
 
 
         } else {
