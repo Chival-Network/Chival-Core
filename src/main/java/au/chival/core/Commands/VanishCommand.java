@@ -8,12 +8,11 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 import java.util.ArrayList;
-import java.util.UUID;
 
 public class VanishCommand implements CommandExecutor {
 
-    public static ArrayList<Player> vanished = new ArrayList<>();
-    public ArrayList<UUID> vanishedPlayers = new ArrayList<>();
+
+    public ArrayList<Player> vanished = new ArrayList<>();
 
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] strings) {
@@ -36,11 +35,6 @@ public class VanishCommand implements CommandExecutor {
                 p.sendMessage(Util.Color("&aYou Have Vanished"));
             }
             return true;
-        }
-        for (Player target : Bukkit.getOnlinePlayers()) {
-            if (!target.hasPermission("chival.vanish")) {
-                target.hidePlayer(target.getPlayer());
-            }
         }
         return false;
     }

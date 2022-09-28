@@ -9,6 +9,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.scheduler.BukkitRunnable;
+import au.chival.core.Commands.VanishCommand.*;
 
 import static au.chival.core.Main.plugin;
 
@@ -26,9 +27,9 @@ public class JoinLeave implements Listener {
             }
         }.runTaskAsynchronously(plugin);
 
-        for (Player p : Bukkit.getOnlinePlayers()) {
-            if (VanishCommand.vanished.contains(p)) {
-                event.getPlayer().hidePlayer(p);
+        for (Player target : Bukkit.getOnlinePlayers()) {
+            if (!target.hasPermission("chival.cansee")) {
+                target.hidePlayer(vanished);
             }
         }
     }
