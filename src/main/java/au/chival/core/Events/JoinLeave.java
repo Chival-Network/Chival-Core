@@ -1,6 +1,7 @@
 package au.chival.core.Events;
 
 import au.chival.core.Formatting.Formatting;
+import au.chival.core.Vanish.Vanish;
 import org.bukkit.ChatColor;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -9,8 +10,6 @@ import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.scheduler.BukkitRunnable;
 
 import static au.chival.core.Main.plugin;
-import static au.chival.core.Vanish.Vanish.vanished;
-
 public class JoinLeave implements Listener {
 
     @EventHandler
@@ -29,6 +28,8 @@ public class JoinLeave implements Listener {
                 new Formatting(event.getPlayer().getUniqueId()).Tab(tab);
             }
         }.runTaskAsynchronously(plugin);
+
+        new Vanish(event.getPlayer(), false).update();
     }
 
     @EventHandler

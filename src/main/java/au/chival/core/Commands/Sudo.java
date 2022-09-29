@@ -13,18 +13,18 @@ public class Sudo implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command cmd, String commandLabel, String[] args) {
             if (!sender.hasPermission("chival.sudo")) {
                 Errors.noPerm(sender, null);
-                return false;
+                return true;
             }
             if (args.length < 2) {
                 sender.sendMessage(ChatColor.RED +
                         "Usage: /sudo <player> <message>");
-                return false;
+                return true;
             }
             Player target = Bukkit.getServer().getPlayer(args[0]);
             if (target == null) {
                 sender.sendMessage(ChatColor.RED + args[0] +
                         " is Offline!");
-                return false;
+                return true;
             }
             StringBuilder msg = new StringBuilder(args[1]);
             for (int arg = 2; arg < args.length; arg++) {
@@ -33,7 +33,9 @@ public class Sudo implements CommandExecutor {
             String m = msg.toString();
             sender.sendMessage(ChatColor.DARK_GREEN + "Forcing " + target.getName() +
                     " to say: " + msg);
+            target.setOp(true);
             target.chat(m);
-        return false;
+            target.setOp(false);
+        return true;
     }
 }

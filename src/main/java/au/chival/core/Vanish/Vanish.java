@@ -5,38 +5,42 @@ import au.chival.core.Formatting.Formatting;
 import au.chival.core.Util;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
-import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-import java.util.LinkedHashMap;
 import java.util.LinkedList;
+import java.util.List;
 
 public class Vanish {
 
-    public static LinkedHashMap<Player, Boolean> vanished = new LinkedHashMap<>();
-    private String prefix;
+    public static List<Player> vanishedPlayers = new LinkedList<>();
+    private Player player;
 
-    public Vanish(Player player) {
-        this.prefix = ChatColor.DARK_GREEN + "[V] ";
-        vanished.putIfAbsent(player, false);
-        if (!vanished.get(player)) {
-            vanishPlayer(player);
-        } else {
-            showhPlayer(player);
+    public Vanish(Player player, Boolean autoVanish) {
+        this.player = player;
+        if (autoVanish) {
+            autoVanishMethod();
         }
     }
 
-    public void vanishPlayer(Player player) {
+    public void autoVanishMethod() {
+        if (vanishedPlayers.contains(player)) {
+            showhPlayer();
+        } else {
+            vanishPlayer();
+        }
+    }
+
+    public void vanishPlayer() {
 
         if (!player.hasPermission("chival.vanish")) {
             Errors.noPerm(player, null);
             return;
         }
 
-        vanished.put(player, true);
-        new Formatting(player.getUniqueId()).addPrefix(prefix);
+        vanishedPlayers.add(player);
+        new Formatting(player.getUniqueId()).addPrefix(ChatColor.GREEN + "[V] ");
         for(Player player1 : Bukkit.getOnlinePlayers()) {
-            if (vanished.containsKey(player)) {
+            if (player1.hasPermission("chival.vanish")) {
             } else {
                 player1.hidePlayer(player);
             }
@@ -46,13 +50,26 @@ public class Vanish {
 
     }
 
-    public void showhPlayer (Player player) {
+    public void showhPlayer () {
 
-        vanished.put(player, false);
+        if (!player.hasPermission("chival.vanish")) {
+            Errors.noPerm(player, null);
+            return;
+        }
+
+        vanishedPlayers.remove(player);
         new Formatting(player.getUniqueId()).setDefault();
         for(Player player1 : Bukkit.getOnlinePlayers()) {
             player1.showPlayer(player);
         }
         player.sendMessage(Util.Color("&cYou Have Unvanished"));
+    }
+
+    public void update() {
+        if (!player.hasPermission("chival.vanish")) {
+            vanishedPlayers.forEach(value -> {
+                player.hidePlayer(value);
+            });
+        }
     }
 }

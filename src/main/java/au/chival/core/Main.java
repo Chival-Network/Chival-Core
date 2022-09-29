@@ -46,6 +46,7 @@ public final class Main extends JavaPlugin {
         plugin.getServer().getPluginManager().registerEvents(new Chat(), plugin);
         plugin.getServer().getPluginManager().registerEvents(new PlayerDeath(), plugin);
         plugin.getServer().getPluginManager().registerEvents(new PlayerDamage(), plugin);
+        plugin.getServer().getPluginManager().registerEvents(new PlayerHunger(), plugin);
         //luckPerms
         new UpdateUser(plugin, LuckPermsProvider.get());
     }
