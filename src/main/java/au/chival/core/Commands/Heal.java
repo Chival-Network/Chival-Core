@@ -11,7 +11,6 @@ import org.bukkit.entity.Player;
 public class Heal implements CommandExecutor {
 
     public boolean onCommand(CommandSender sender, Command command, String c, String[] args){
-        if(command.getName().equalsIgnoreCase("heal")){
             if (sender instanceof Player){
                 Player player = (Player) sender;
                 if(args.length == 1) {
@@ -35,7 +34,6 @@ public class Heal implements CommandExecutor {
                     return true;
                 }
             }
-        }
         return false;
     }
 }

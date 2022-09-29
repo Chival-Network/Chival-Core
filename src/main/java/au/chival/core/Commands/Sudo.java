@@ -10,9 +10,7 @@ import org.bukkit.entity.Player;
 
 public class Sudo implements CommandExecutor {
 
-    @Override
     public boolean onCommand(CommandSender sender, Command cmd, String commandLabel, String[] args) {
-        if (cmd.getName().equalsIgnoreCase("sudo")) {
             if (!sender.hasPermission("chival.sudo")) {
                 Errors.noPerm(sender, null);
                 return false;
@@ -36,7 +34,6 @@ public class Sudo implements CommandExecutor {
             sender.sendMessage(ChatColor.DARK_GREEN + "Forcing " + target.getName() +
                     " to say: " + msg);
             target.chat(m);
-        }
         return false;
     }
 }
