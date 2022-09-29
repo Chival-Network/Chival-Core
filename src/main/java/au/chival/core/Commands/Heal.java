@@ -1,5 +1,6 @@
 package au.chival.core.Commands;
 
+import au.chival.core.Errors;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
@@ -30,7 +31,7 @@ public class Heal implements CommandExecutor {
                     player.setFoodLevel(20);
                     return true;
                 } else if(args.length > 1){
-                    sender.sendMessage(ChatColor.RED + "Too many args!");
+                    Errors.noArgs(player, null);
                     return true;
                 }
             }
