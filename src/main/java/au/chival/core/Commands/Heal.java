@@ -23,7 +23,7 @@ public class Heal implements CommandExecutor {
                         sender.sendMessage(ChatColor.GREEN + "That Player Has Been Healed");
                         return true;
                     } else if (target == null) {
-                        sender.sendMessage(ChatColor.RED + "Player is offline.");
+                        Errors.invalidObject(player, "player");
                         return true;
                     }
                 } else if (args.length == 0) {
