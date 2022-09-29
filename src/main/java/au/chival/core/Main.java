@@ -2,9 +2,12 @@ package au.chival.core;
 
 import au.chival.core.Commands.*;
 import au.chival.core.Events.*;
+import au.chival.core.Formatting.Formatting;
 import net.luckperms.api.LuckPermsProvider;
+import org.bukkit.ChatColor;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.bukkit.scheduler.BukkitRunnable;
 
 public final class Main extends JavaPlugin {
 
@@ -13,22 +16,28 @@ public final class Main extends JavaPlugin {
     @Override
     public void onEnable() {
 
-        //new File(getDataFolder(), "").mkdirs();
-        //FileConfiguration arenasConfig;
-        //File arenasFile = new File(this.plugin.getDataFolder(), "config.yml");
-        //if (!(arenasFile.exists())) {
-        //    try {
-        //        arenasFile.createNewFile();
-        //        Files.copy(getClass().getClassLoader().getResourceAsStream("config.yml"), arenasFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
-        //    } catch (IOException e) {
-        //        Bukkit.getLogger().info("UNABLE TO COPY YML FROM JAR |[ " + e + " ]|");
-        //    }
-        //}
-        //arenasConfig = YamlConfiguration.loadConfiguration(arenasFile);
-
         plugin = this;
 
         reg();
+        config();
+        database();
+    }
+
+    public void startUpDelay() {
+        new BukkitRunnable() {
+            @Override
+            public void run() {
+
+            }
+        }.runTaskAsynchronously(plugin);
+    }
+
+    public void config() {
+
+    }
+
+    public void database() {
+
     }
 
     public void reg() {
