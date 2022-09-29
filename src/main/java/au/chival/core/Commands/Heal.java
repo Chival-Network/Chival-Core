@@ -7,15 +7,14 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-public class heal implements CommandExecutor {
+public class Heal implements CommandExecutor {
 
     public boolean onCommand(CommandSender sender, Command command, String c, String[] args){
-        Player send = (Player) sender;
-        Player target = null;
         if(command.getName().equalsIgnoreCase("heal")){
             if (sender instanceof Player){
+                Player player = (Player) sender;
                 if(args.length == 1) {
-                    target = Bukkit.getServer().getPlayer(args [0]);
+                    Player target = Bukkit.getServer().getPlayer(args [0]);
                     if (target != null) {
                         target.setHealth(20);
                         target.sendMessage(ChatColor.GREEN + "You Have Been Healed");
@@ -26,7 +25,7 @@ public class heal implements CommandExecutor {
                         return true;
                     }
                 } else if (args.length == 0) {
-                    send.setHealth(20);
+                    player.setHealth(20);
                     return true;
                 } else if(args.length > 1){
                     sender.sendMessage(ChatColor.RED + "Too many args!");
