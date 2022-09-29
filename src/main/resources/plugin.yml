@@ -40,6 +40,13 @@ commands:
   heal:
     description: test stuff
     usage: /test <stuff>
+  help:
+    description: help
+    usage: /help
+  report:
+    description: report a player
+    usage: /report <player> <reason>
+    aliases: r
 permissions:
   chival.vanish:
     description: Allows use of Vanish
