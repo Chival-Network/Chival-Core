@@ -6,9 +6,9 @@ commands:
   sudo:
     description: /sudo
     aliases: /s
-  mode:
-    description:  /gmc
-    aliases: gm
+  lobby:
+    description: /lobby
+    aliases: [hub, l, zoo]
   vanish:
     description: /vanish
     aliases: v

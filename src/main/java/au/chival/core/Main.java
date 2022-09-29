@@ -2,16 +2,17 @@ package au.chival.core;
 
 import au.chival.core.Commands.*;
 import au.chival.core.Events.*;
+import au.chival.core.Report.ReportCommand;
+import au.chival.core.Vanish.VanishCommand;
 import net.luckperms.api.LuckPermsProvider;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
-import org.bukkit.scheduler.BukkitRunnable;
 
 public final class Main extends JavaPlugin {
 
     public static Plugin plugin;
-    FileConfiguration config;
+    public static FileConfiguration config;
 
     @Override
     public void onEnable() {
@@ -24,9 +25,12 @@ public final class Main extends JavaPlugin {
     }
 
     public void config() {
-        config = this.getConfig();
+
         this.getConfig().options().copyDefaults(true);
         this.saveDefaultConfig();
+        this.saveConfig();
+
+        config = this.getConfig();
     }
 
     public void database() {
@@ -36,13 +40,15 @@ public final class Main extends JavaPlugin {
     public void reg() {
         //command this.getCommand().setExecutor();
         this.getCommand("sudo").setExecutor(new Sudo());
+        this.getCommand("lobby").setExecutor(new Lobby());
         this.getCommand("heal").setExecutor(new Heal());
-        this.getCommand("mode").setExecutor(new Gamemode());
-        this.getCommand("vanish").setExecutor(new VanishC());
+        this.getCommand("vanish").setExecutor(new VanishCommand());
         this.getCommand("fly").setExecutor(new Fly());
         this.getCommand("speed").setExecutor(new Speed());
         this.getCommand("rank").setExecutor(new Ranks());
         this.getCommand("flys").setExecutor(new Flys());
+        this.getCommand("help").setExecutor(new Help());
+        this.getCommand("report").setExecutor(new ReportCommand());
         //listeners plugin.getServer().getPluginManager().registerEvents(new , plugin);
         plugin.getServer().getPluginManager().registerEvents(new JoinLeave(), plugin);
         plugin.getServer().getPluginManager().registerEvents(new Chat(), plugin);
