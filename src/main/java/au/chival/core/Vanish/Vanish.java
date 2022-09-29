@@ -5,11 +5,9 @@ import au.chival.core.Formatting.Formatting;
 import au.chival.core.Util;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
-import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 import java.util.LinkedHashMap;
-import java.util.LinkedList;
 
 public class Vanish {
 
@@ -31,7 +29,7 @@ public class Vanish {
             return;
         }
 
-        vanished.put(player, true);
+        vanished.put(player, false);
         new Formatting(player.getUniqueId(), false, null, null, ChatColor.DARK_GREEN + "[V] " + ChatColor.RESET);
         for(Player player1 : Bukkit.getOnlinePlayers()) {
             if (vanished.containsKey(player)) {
