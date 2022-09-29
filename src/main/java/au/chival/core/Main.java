@@ -3,16 +3,8 @@ package au.chival.core;
 import au.chival.core.Commands.*;
 import au.chival.core.Events.*;
 import net.luckperms.api.LuckPermsProvider;
-import org.bukkit.Bukkit;
-import org.bukkit.configuration.file.FileConfiguration;
-import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
-
-import java.io.File;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.StandardCopyOption;
 
 public final class Main extends JavaPlugin {
 
@@ -41,6 +33,8 @@ public final class Main extends JavaPlugin {
 
     public void reg() {
         //command this.getCommand().setExecutor();
+        this.getCommand("sudo").setExecutor(new Sudo());
+        this.getCommand("heal").setExecutor(new Heal());
         this.getCommand("mode").setExecutor(new Gamemode());
         this.getCommand("vanish").setExecutor(new VanishCommand());
         this.getCommand("fly").setExecutor(new Fly());
