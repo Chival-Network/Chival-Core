@@ -14,8 +14,10 @@ import java.util.LinkedList;
 public class Vanish {
 
     public static LinkedHashMap<Player, Boolean> vanished = new LinkedHashMap<>();
+    private String prefix;
 
     public Vanish(Player player) {
+        this.prefix = ChatColor.DARK_GREEN + "[V] ";
         vanished.putIfAbsent(player, false);
         if (!vanished.get(player)) {
             vanishPlayer(player);
@@ -32,7 +34,7 @@ public class Vanish {
         }
 
         vanished.put(player, true);
-        new Formatting(player.getUniqueId(), false, null, null, ChatColor.DARK_GREEN + "[V] " + ChatColor.RESET);
+        new Formatting(player.getUniqueId()).addPrefix(prefix);
         for(Player player1 : Bukkit.getOnlinePlayers()) {
             if (vanished.containsKey(player)) {
             } else {
@@ -47,7 +49,7 @@ public class Vanish {
     public void showhPlayer (Player player) {
 
         vanished.put(player, false);
-        new Formatting(player.getUniqueId(), false, null, null, null);
+        new Formatting(player.getUniqueId()).setDefault();
         for(Player player1 : Bukkit.getOnlinePlayers()) {
             player1.showPlayer(player);
         }

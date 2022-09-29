@@ -15,40 +15,55 @@ import java.util.UUID;
 
 public class Formatting {
 
-    public Formatting(UUID uuid, boolean formatTab, String header, String footer, String prePreFix) {
+    private String prefix;
+    private LuckPerms luckPerms;
+    private User luckPermUser;
+    private TabAPI tabAPI;
+    private TabPlayer tabPlayer;
+    private UUID uuid;
 
-        while (Bukkit.getPlayer(uuid) == null) {}
+    public Formatting(UUID uuid) {
 
-        Player player = Bukkit.getPlayer(uuid);
-
-        LuckPerms luckPerms = LuckPermsProvider.get();
-        User luckPermUser = luckPerms.getUserManager().getUser(player.getUniqueId());
-        String prefix = luckPermUser.getCachedData().getMetaData().getPrefix();
-
+        this.uuid = uuid;
+        this.luckPerms = LuckPermsProvider.get();
+        this.luckPermUser = luckPerms.getUserManager().getUser(uuid);
+        if (luckPermUser == null) {
+            Bukkit.getPlayer(uuid).sendMessage(ChatColor.RED + "Profile could not be loaded...");
+            Bukkit.getPlayer(uuid).kickPlayer(ChatColor.RED + "Profile could not be loaded...");
+            return;
+        }
+        this.prefix = luckPermUser.getCachedData().getMetaData().getPrefix();
+        this.tabAPI = TabAPI.getInstance();
+        this.tabPlayer = tabAPI.getPlayer(uuid);
         if (prefix == null) {
             prefix = (ChatColor.GRAY + "");
         }
-        if (prePreFix == null) {
-            prePreFix = ("");
-        }
-
-        TabAPI tabAPI = TabAPI.getInstance();
-        TabPlayer tabPlayer = tabAPI.getPlayer(player.getUniqueId());
-
-        tabAPI.getTeamManager().setPrefix(tabPlayer, prePreFix + prefix);
-        tabAPI.getTablistFormatManager().setPrefix(tabPlayer, prePreFix + prefix);
-        player.setDisplayName(prePreFix + prefix + player.getName());
-
-        if (formatTab) {
-            formattingTab(tabPlayer, header, footer);
-        }
-
     }
 
-    public void formattingTab(TabPlayer tabPlayer, String header, String footer) {
+    public void setDefault() {
+        tabAPI.getTeamManager().setPrefix(tabPlayer, prefix);
+        tabAPI.getTablistFormatManager().setPrefix(tabPlayer, prefix);
+        Bukkit.getPlayer(uuid).setDisplayName(prefix + Bukkit.getPlayer(uuid).getName());
+    }
+
+    public void update() {
+        String prefixes = luckPermUser.getCachedData().getMetaData().getPrefix();
+        tabAPI.getTeamManager().setPrefix(tabPlayer, prefixes);
+        tabAPI.getTablistFormatManager().setPrefix(tabPlayer, prefixes);
+        Bukkit.getPlayer(uuid).setDisplayName(prefixes);
+    }
+
+    public void addPrefix(String newPrefix) {
+
+        tabAPI.getTeamManager().setPrefix(tabPlayer, newPrefix + prefix);
+        tabAPI.getTablistFormatManager().setPrefix(tabPlayer, newPrefix + prefix);
+        Bukkit.getPlayer(uuid).setDisplayName(newPrefix + prefix);
+    }
+
+    public void Tab(String[] headerFooter) {
 
         HeaderFooterManager headerFooterManager = TabAPI.getInstance().getHeaderFooterManager();
 
-        headerFooterManager.setHeaderAndFooter(tabPlayer, header, footer);
+        headerFooterManager.setHeaderAndFooter(tabPlayer, headerFooter[0], headerFooter[1]);
     }
 }
