@@ -1,10 +1,11 @@
 package au.chival.core.Events;
 
 import au.chival.core.Formatting.Formatting;
+import au.chival.core.Vanish.Vanish;
 import net.luckperms.api.LuckPerms;
 import net.luckperms.api.event.EventBus;
 import net.luckperms.api.event.user.UserDataRecalculateEvent;
-import net.luckperms.api.event.user.track.UserTrackEvent;
+import org.bukkit.Bukkit;
 import org.bukkit.plugin.Plugin;
 
 public class UpdateUser {
@@ -21,7 +22,8 @@ public class UpdateUser {
 
     private void onUserDataRecalculateEvent(UserDataRecalculateEvent event) {
         try {
-            new Formatting(event.getUser().getUniqueId()).update();
+            new Vanish(Bukkit.getPlayer(event.getUser().getUniqueId()), false).update();
+            new Formatting(event.getUser().getUniqueId()).setDefault();
         } catch (Exception e) {}
     }
 }
