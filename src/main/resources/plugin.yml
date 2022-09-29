@@ -28,10 +28,6 @@ commands:
   wtp:
     description: /wtp <world> <player>
     usage:  /wtp <world> <player>
-  sudo:
-    description: /sudo <player> <command/message>
-    usage: /sudo <player> <command/message>
-    aliases: s
   wc:
     description: /wc <world>
     usage: /wc <world>
