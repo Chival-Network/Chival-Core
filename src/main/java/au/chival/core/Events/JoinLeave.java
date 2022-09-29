@@ -9,6 +9,7 @@ import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.scheduler.BukkitRunnable;
 
 import static au.chival.core.Main.plugin;
+import static au.chival.core.Vanish.Vanish.vanished;
 
 public class JoinLeave implements Listener {
 
@@ -24,8 +25,7 @@ public class JoinLeave implements Listener {
                 new Formatting(event.getPlayer().getUniqueId(), true, "&bYou Are Playing On &6&lMC.CHIVAL.AU"  , "&bDo &2/help &bfor help", null);
             }
         }.runTaskAsynchronously(plugin);
-
-            }
+    }
 
     @EventHandler
     public void onLeave(PlayerQuitEvent event) {

@@ -16,6 +16,7 @@ public class Vanish {
     public static LinkedHashMap<Player, Boolean> vanished = new LinkedHashMap<>();
 
     public Vanish(Player player) {
+        vanished.putIfAbsent(player, false);
         if (!vanished.get(player)) {
             vanishPlayer(player);
         } else {
