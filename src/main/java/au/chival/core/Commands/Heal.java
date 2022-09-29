@@ -17,6 +17,7 @@ public class Heal implements CommandExecutor {
                     Player target = Bukkit.getServer().getPlayer(args [0]);
                     if (target != null) {
                         target.setHealth(20);
+                        target.setFoodLevel(20);
                         target.sendMessage(ChatColor.GREEN + "You Have Been Healed");
                         sender.sendMessage(ChatColor.GREEN + "That Player Has Been Healed");
                         return true;
@@ -26,6 +27,7 @@ public class Heal implements CommandExecutor {
                     }
                 } else if (args.length == 0) {
                     player.setHealth(20);
+                    player.setFoodLevel(20);
                     return true;
                 } else if(args.length > 1){
                     sender.sendMessage(ChatColor.RED + "Too many args!");
