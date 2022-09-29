@@ -1,4 +1,5 @@
 debug: false
+lobby-server: "LA1"
 lobby-loc:
   world: "world"
   x: 0

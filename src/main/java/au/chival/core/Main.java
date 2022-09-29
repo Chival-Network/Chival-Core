@@ -2,9 +2,8 @@ package au.chival.core;
 
 import au.chival.core.Commands.*;
 import au.chival.core.Events.*;
-import au.chival.core.Formatting.Formatting;
 import net.luckperms.api.LuckPermsProvider;
-import org.bukkit.ChatColor;
+import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitRunnable;
@@ -12,6 +11,7 @@ import org.bukkit.scheduler.BukkitRunnable;
 public final class Main extends JavaPlugin {
 
     public static Plugin plugin;
+    FileConfiguration config;
 
     @Override
     public void onEnable() {
@@ -23,17 +23,10 @@ public final class Main extends JavaPlugin {
         database();
     }
 
-    public void startUpDelay() {
-        new BukkitRunnable() {
-            @Override
-            public void run() {
-
-            }
-        }.runTaskAsynchronously(plugin);
-    }
-
     public void config() {
-
+        config = this.getConfig();
+        this.getConfig().options().copyDefaults(true);
+        this.saveDefaultConfig();
     }
 
     public void database() {
@@ -45,7 +38,7 @@ public final class Main extends JavaPlugin {
         this.getCommand("sudo").setExecutor(new Sudo());
         this.getCommand("heal").setExecutor(new Heal());
         this.getCommand("mode").setExecutor(new Gamemode());
-        this.getCommand("vanish").setExecutor(new VanishCommand());
+        this.getCommand("vanish").setExecutor(new VanishC());
         this.getCommand("fly").setExecutor(new Fly());
         this.getCommand("speed").setExecutor(new Speed());
         this.getCommand("rank").setExecutor(new Ranks());
