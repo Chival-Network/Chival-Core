@@ -12,6 +12,9 @@ commands:
   vanish:
     description: /vanish
     aliases: v
+  setspawn:
+    description: sets spawn
+    usage: /setspawn
   speed:
     description: /speed
     usage: /speed <speed 1 - 10>
