@@ -1,4 +1,4 @@
-package au.chival.core.QOF.Vanish;
+package au.chival.core.QOL.Vanish;
 
 import au.chival.core.Util.Errors.Errors;
 import au.chival.core.MainFeatures.Formatting.Formatting;

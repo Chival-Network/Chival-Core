@@ -1,4 +1,4 @@
-package au.chival.core.QOF.Heal;
+package au.chival.core.QOL.Heal;
 
 import au.chival.core.Util.Errors.Errors;
 import org.bukkit.Bukkit;

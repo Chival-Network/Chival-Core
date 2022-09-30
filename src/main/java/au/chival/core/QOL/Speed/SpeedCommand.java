@@ -1,4 +1,4 @@
-package au.chival.core.QOF.Speed;
+package au.chival.core.QOL.Speed;
 
 import au.chival.core.Util.Util;
 import org.bukkit.ChatColor;

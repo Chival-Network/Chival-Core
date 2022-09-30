@@ -1,7 +1,7 @@
 package au.chival.core.MainFeatures.JoinLeave;
 
 import au.chival.core.MainFeatures.Formatting.Formatting;
-import au.chival.core.QOF.Vanish.Vanish;
+import au.chival.core.QOL.Vanish.Vanish;
 import org.bukkit.ChatColor;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;

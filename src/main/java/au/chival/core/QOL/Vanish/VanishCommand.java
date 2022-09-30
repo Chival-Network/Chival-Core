@@ -1,4 +1,4 @@
-package au.chival.core.QOF.Vanish;
+package au.chival.core.QOL.Vanish;
 
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;

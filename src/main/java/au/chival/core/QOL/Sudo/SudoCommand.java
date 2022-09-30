@@ -1,4 +1,4 @@
-package au.chival.core.QOF.Sudo;
+package au.chival.core.QOL.Sudo;
 
 import au.chival.core.Util.Errors.Errors;
 import org.bukkit.Bukkit;

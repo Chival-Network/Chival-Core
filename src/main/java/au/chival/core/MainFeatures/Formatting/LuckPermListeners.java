@@ -1,6 +1,6 @@
 package au.chival.core.MainFeatures.Formatting;
 
-import au.chival.core.QOF.Vanish.Vanish;
+import au.chival.core.QOL.Vanish.Vanish;
 import net.luckperms.api.LuckPerms;
 import net.luckperms.api.event.EventBus;
 import net.luckperms.api.event.user.UserDataRecalculateEvent;

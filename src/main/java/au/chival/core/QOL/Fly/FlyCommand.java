@@ -1,4 +1,4 @@
-package au.chival.core.QOF.Fly;
+package au.chival.core.QOL.Fly;
 
 import au.chival.core.Util.Util;
 import org.bukkit.ChatColor;
