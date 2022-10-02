@@ -22,7 +22,7 @@ public class HealCommand implements CommandExecutor {
                         sender.sendMessage(ChatColor.GREEN + "That Player Has Been Healed");
                         return true;
                     } else if (target == null) {
-                        Errors.invalidObject(player, "player");
+                        Errors.requiresPlayer(sender);
                         return true;
                     }
                 } else if (args.length == 0) {
@@ -30,7 +30,7 @@ public class HealCommand implements CommandExecutor {
                     player.setFoodLevel(20);
                     return true;
                 } else if(args.length > 1){
-                    Errors.noArgs(player, null);
+                    Errors.noArgs(player);
                     return true;
                 }
             }

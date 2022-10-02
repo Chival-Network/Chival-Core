@@ -17,19 +17,27 @@ public class JoinListener implements Listener {
     public void onJoin(PlayerJoinEvent event) {
         event.getPlayer().teleport(spawnLocation);
         event.setJoinMessage(null);
-        new BukkitRunnable() {
-            @Override
-            public void run() {
-                event.getPlayer().sendMessage(ChatColor.GREEN + "Loading profile...");
-                while (event.getPlayer() == null) {}
-                if (event.getPlayer() == null) {event.getPlayer().kickPlayer(ChatColor.RED + "Failed to load profile... Please rejoin");}
-                new Formatting(event.getPlayer().getUniqueId()).setDefault();
-                String[] tab = new String[2];
-                tab[0] = "&bYou Are Playing On &6&lMC.CHIVAL.AU";
-                tab[1] = "&bDo &2/help &bfor help";
-                new Formatting(event.getPlayer().getUniqueId()).Tab(tab);
-            }
-        }.runTaskAsynchronously(plugin);
+        try {
+            new BukkitRunnable() {
+                @Override
+                public void run() {
+                    while (event.getPlayer() == null) {
+                    }
+                    if (event.getPlayer() == null) {
+                        event.getPlayer().kickPlayer(ChatColor.RED + "Failed to load profile... Please rejoin");
+                    }
+                    new Formatting(event.getPlayer().getUniqueId()).setDefault();
+                    String[] tab = new String[2];
+                    tab[0] = "&bYou Are Playing On &6&lMC.CHIVAL.AU";
+                    tab[1] = "&bDo &2/help &bfor help";
+                    new Formatting(event.getPlayer().getUniqueId()).Tab(tab);
+                }
+            }.runTaskAsynchronously(plugin);
+        }
+        catch (Exception e) {
+            event.getPlayer().sendMessage(ChatColor.DARK_RED + "Failed to load profile...");
+            event.getPlayer().kickPlayer(ChatColor.DARK_RED + "Failed to load profile...");
+        }
 
         new Vanish(event.getPlayer(), false).update();
     }

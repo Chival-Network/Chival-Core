@@ -12,7 +12,7 @@ public class SudoCommand implements CommandExecutor {
 
     public boolean onCommand(CommandSender sender, Command cmd, String commandLabel, String[] args) {
             if (!sender.hasPermission("chival.sudo")) {
-                Errors.noPerm(sender, null);
+                Errors.noPerm(sender);
                 return true;
             }
             if (args.length < 2) {

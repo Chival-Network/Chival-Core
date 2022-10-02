@@ -16,22 +16,22 @@ public class RanksCommand implements CommandExecutor {
     public boolean onCommand(CommandSender commandSender, Command command, String s, String[] args) {
 
         if (!(commandSender.hasPermission("chival.ranks"))) {
-            Errors.noPerm(commandSender, null);
+            Errors.noPerm(commandSender);
             return true;
         }
 
         if (args.length != 2) {
-            Errors.noArgs(commandSender, null);
+            Errors.noArgs(commandSender);
             return true;
         }
 
         if (!Bukkit.getOnlinePlayers().contains(args[0])) {
-            Errors.invalidObject(commandSender, "player! Or that player is offline");
+            Errors.requiresPlayer(commandSender);
             return true;
         }
 
         if (LuckPermsProvider.get().getGroupManager().getGroup(args[1]) == null) {
-            Errors.invalidObject(commandSender, "group");
+            Errors.requiresPlayer(commandSender);
             return true;
         }
 

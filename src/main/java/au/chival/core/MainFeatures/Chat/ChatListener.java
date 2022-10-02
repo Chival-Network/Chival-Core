@@ -10,8 +10,11 @@ public class ChatListener implements Listener {
     @EventHandler
     public void onChat(AsyncPlayerChatEvent event) {
 
-        String playerName = event.getPlayer().getDisplayName();
+        new ChatFilter().onChat(event);
+
+        String displayName = event.getPlayer().getDisplayName();
         String message = event.getMessage();
-        event.setFormat(playerName + ChatColor.RESET + ": " + message);
+
+        event.setFormat(displayName + ChatColor.RESET + ": " + message);
     }
 }

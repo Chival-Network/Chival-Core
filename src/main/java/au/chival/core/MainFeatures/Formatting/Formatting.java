@@ -13,6 +13,7 @@ import java.util.UUID;
 
 public class Formatting {
 
+    private String defaultPrefix;
     private String prefix;
     private LuckPerms luckPerms;
     private User luckPermUser;
@@ -25,23 +26,20 @@ public class Formatting {
         this.uuid = uuid;
         this.luckPerms = LuckPermsProvider.get();
         this.luckPermUser = luckPerms.getUserManager().getUser(uuid);
-        if (luckPermUser == null) {
-            Bukkit.getPlayer(uuid).sendMessage(ChatColor.RED + "Profile could not be loaded...");
-            Bukkit.getPlayer(uuid).kickPlayer(ChatColor.RED + "Profile could not be loaded...");
-            return;
-        }
-        this.prefix = luckPermUser.getCachedData().getMetaData().getPrefix();
+        assert luckPermUser != null;
+        this.defaultPrefix = luckPermUser.getCachedData().getMetaData().getPrefix();
         this.tabAPI = TabAPI.getInstance();
         this.tabPlayer = tabAPI.getPlayer(uuid);
-        if (prefix == null) {
-            prefix = (ChatColor.GRAY + "");
+        this.prefix = tabAPI.getTablistFormatManager().getCustomPrefix(tabPlayer);
+        if (defaultPrefix == null) {
+            defaultPrefix = (ChatColor.GRAY + "");
         }
     }
 
     public void setDefault() {
-        tabAPI.getTeamManager().setPrefix(tabPlayer, prefix);
-        tabAPI.getTablistFormatManager().setPrefix(tabPlayer, prefix);
-        Bukkit.getPlayer(uuid).setDisplayName(prefix + Bukkit.getPlayer(uuid).getName());
+        tabAPI.getTeamManager().setPrefix(tabPlayer, defaultPrefix);
+        tabAPI.getTablistFormatManager().setPrefix(tabPlayer, defaultPrefix);
+        Bukkit.getPlayer(uuid).setDisplayName(defaultPrefix + Bukkit.getPlayer(uuid).getName());
     }
 
     public void update() {

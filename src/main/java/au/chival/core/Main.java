@@ -3,6 +3,7 @@ package au.chival.core;
 import au.chival.core.MainFeatures.Chat.ChatListener;
 import au.chival.core.MainFeatures.JoinLeave.JoinListener;
 import au.chival.core.MainFeatures.Formatting.LuckPermListeners;
+import au.chival.core.MainFeatures.JoinLeave.LeaveListener;
 import au.chival.core.MainFeatures.Lobby.PlayerDamageListener;
 import au.chival.core.MainFeatures.Lobby.PlayerDeathListener;
 import au.chival.core.MainFeatures.Lobby.PlayerHungerListener;
@@ -11,7 +12,7 @@ import au.chival.core.QOL.Fly.FlysCommand;
 import au.chival.core.QOL.Heal.HealCommand;
 import au.chival.core.MainFeatures.Help.HelpCommand;
 import au.chival.core.MainFeatures.Ranks.RanksCommand;
-import au.chival.core.MainFeatures.Report.ReportCommand;
+import au.chival.core.MainFeatures.Report.ReportCommandTab;
 import au.chival.core.MainFeatures.Lobby.Spawning.SetSpawnCommand;
 import au.chival.core.QOL.Speed.SpeedCommand;
 import au.chival.core.QOL.Sudo.SudoCommand;
@@ -46,19 +47,6 @@ public final class Main extends JavaPlugin {
         database();
     }
 
-    public void config() {
-
-        this.getConfig().options().copyDefaults(true);
-        this.saveDefaultConfig();
-        this.saveConfig();
-
-        config = this.getConfig();
-    }
-
-    public void database() {
-
-    }
-
     public void reg() {
         //command this.getCommand().setExecutor();
         this.getCommand("sudo").setExecutor(new SudoCommand());
@@ -70,16 +58,35 @@ public final class Main extends JavaPlugin {
         this.getCommand("rank").setExecutor(new RanksCommand());
         this.getCommand("flys").setExecutor(new FlysCommand());
         this.getCommand("help").setExecutor(new HelpCommand());
-        this.getCommand("report").setExecutor(new ReportCommand());
+        this.getCommand("report").setExecutor(new ReportCommandTab());
         this.getCommand("setspawn").setExecutor(new SetSpawnCommand());
+
+        //tab this.getCommand().setTabCompleter();
+        this.getCommand("report").setTabCompleter(new ReportCommandTab());
+
         //listeners plugin.getServer().getPluginManager().registerEvents(new , plugin);
         plugin.getServer().getPluginManager().registerEvents(new JoinListener(), plugin);
         plugin.getServer().getPluginManager().registerEvents(new ChatListener(), plugin);
         plugin.getServer().getPluginManager().registerEvents(new PlayerDeathListener(), plugin);
         plugin.getServer().getPluginManager().registerEvents(new PlayerDamageListener(), plugin);
         plugin.getServer().getPluginManager().registerEvents(new PlayerHungerListener(), plugin);
+        plugin.getServer().getPluginManager().registerEvents(new LeaveListener(), plugin);
+
         //luckPerms
         new LuckPermListeners(plugin, LuckPermsProvider.get());
+    }
+
+    public void config() {
+
+        this.getConfig().options().copyDefaults(true);
+        this.saveDefaultConfig();
+        this.saveConfig();
+
+        config = this.getConfig();
+    }
+
+    public void database() {
+
     }
 
     @Override

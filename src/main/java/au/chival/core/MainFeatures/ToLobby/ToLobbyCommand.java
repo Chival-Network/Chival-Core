@@ -14,7 +14,7 @@ public class ToLobbyCommand implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command command, String string, String[] args) {
 
         if (!(sender instanceof Player)) {
-            Errors.invalidObject(sender, "type! You must be a player");
+            Errors.requiresPlayer(sender);
             return true;
         }
 

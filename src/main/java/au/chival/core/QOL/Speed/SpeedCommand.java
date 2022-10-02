@@ -8,23 +8,23 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 public class SpeedCommand implements CommandExecutor {
-    public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {
-        if (!(commandSender instanceof Player)) {
-            commandSender.sendMessage("Player only command!");
+    public boolean onCommand(CommandSender sender, Command command, String s, String[] args) {
+        if (!(sender instanceof Player)) {
+            sender.sendMessage("Player only command!");
             return true;
         }
-        Player player = (Player) commandSender;
+        Player player = (Player) sender;
         if (!(player.hasPermission("chival.speed"))) {
-            commandSender.sendMessage(Util.Color("&cYou do not have permission to run this command!"));
+            sender.sendMessage(Util.Color("&cYou do not have permission to run this command!"));
             return true;
         }
-        if(strings.length == 0) {
+        if(args.length == 0) {
             player.sendMessage(Util.Color("&cPlease Provide a Speed 1 - 10"));
             return true;
         }
         int speed;
         try {
-            speed = Integer.parseInt(strings[0]);
+            speed = Integer.parseInt(args[0]);
         } catch (NumberFormatException e) {
             player.sendMessage(Util.Color("&cPlease Provide A Speed 1 - 10"));
             return true;

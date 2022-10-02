@@ -31,12 +31,10 @@ public class Vanish {
     }
 
     public void vanishPlayer() {
-
         if (!player.hasPermission("chival.vanish")) {
-            Errors.noPerm(player, null);
+            Errors.noPerm(player);
             return;
         }
-
         vanishedPlayers.add(player);
         new Formatting(player.getUniqueId()).addPrefix(ChatColor.GREEN + "[V] ");
         for(Player player1 : Bukkit.getOnlinePlayers()) {
@@ -45,15 +43,13 @@ public class Vanish {
                 player1.hidePlayer(player);
             }
         }
-
         player.sendMessage(Util.Color("&2You Have Vanished"));
-
     }
 
     public void showhPlayer () {
 
         if (!player.hasPermission("chival.vanish")) {
-            Errors.noPerm(player, null);
+            Errors.noPerm(player);
             return;
         }
 
