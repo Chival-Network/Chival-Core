@@ -2,8 +2,10 @@ package au.chival.core.MainFeatures.Ranks;
 
 import au.chival.core.Util.Errors.Errors;
 import net.luckperms.api.LuckPermsProvider;
+import net.luckperms.api.model.data.DataMutateResult;
 import net.luckperms.api.model.group.Group;
 import net.luckperms.api.model.user.User;
+import net.luckperms.api.node.types.InheritanceNode;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
@@ -25,22 +27,34 @@ public class RanksCommand implements CommandExecutor {
             return true;
         }
 
-        if (!Bukkit.getOnlinePlayers().contains(args[0])) {
-            Errors.requiresPlayer(commandSender);
+        if (!Bukkit.getOnlinePlayers().contains(Bukkit.getPlayer(args[0]))) {
+            commandSender.sendMessage(ChatColor.RED + "That player is not online!");
             return true;
         }
 
         if (LuckPermsProvider.get().getGroupManager().getGroup(args[1]) == null) {
-            Errors.requiresPlayer(commandSender);
+            commandSender.sendMessage(ChatColor.RED + "Unknown rank?");
             return true;
         }
 
         User user = LuckPermsProvider.get().getPlayerAdapter(Player.class).getUser(Bukkit.getPlayer(args[0]));
-        Group group = LuckPermsProvider.get().getGroupManager().getGroup(args[1]);
 
-        user.setPrimaryGroup(String.valueOf(group));
+        String oldGroup = user.getPrimaryGroup();
+        String group = args[1];
+        InheritanceNode oldNode = InheritanceNode.builder(oldGroup).value(true).build();
+        InheritanceNode node = InheritanceNode.builder(group).value(true).build();
+        user.data().remove(oldNode);
+        DataMutateResult result = user.data().add(node);
 
-        commandSender.sendMessage(ChatColor.DARK_AQUA + "Changed " + ChatColor.DARK_GREEN + user.getUsername() + ChatColor.DARK_AQUA + "'s rank to " + ChatColor.RESET + group.getCachedData().getMetaData().getPrefix());
+        commandSender.sendMessage(ChatColor.DARK_GREEN + result.toString());
+
+        String prefix = user.getCachedData().getMetaData().getPrefix();
+
+        if (prefix == null) {
+            prefix = ChatColor.GRAY + "[Default]";
+        }
+
+        commandSender.sendMessage(ChatColor.DARK_AQUA + "Changed " + ChatColor.DARK_GREEN + user.getUsername() + ChatColor.DARK_AQUA + "'s rank to " + ChatColor.RESET + prefix);
 
         return true;
     }

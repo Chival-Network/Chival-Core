@@ -2,6 +2,7 @@ name: ChivalCore
 version: '${project.version}'
 main: au.chival.core.Main
 api-version: 1.8.8
+load: POSTWORLD
 commands:
   sudo:
     description: /sudo

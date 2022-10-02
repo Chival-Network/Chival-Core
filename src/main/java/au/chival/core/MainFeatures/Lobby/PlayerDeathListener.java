@@ -9,9 +9,6 @@ public class PlayerDeathListener implements Listener {
 
     @EventHandler
     public void onPlayerDeath(PlayerDeathEvent event) {
-
-        if (event.getEntity().getWorld().equals(Bukkit.getWorld("world"))) {
-            event.setDeathMessage(null);
-        }
+        event.setDeathMessage(null);
     }
 }

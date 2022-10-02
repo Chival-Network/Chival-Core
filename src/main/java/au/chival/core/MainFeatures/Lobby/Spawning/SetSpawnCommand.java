@@ -8,8 +8,7 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-import static au.chival.core.Main.config;
-import static au.chival.core.Main.spawnLocation;
+import static au.chival.core.Main.*;
 
 public class SetSpawnCommand implements CommandExecutor {
     @Override
@@ -27,12 +26,14 @@ public class SetSpawnCommand implements CommandExecutor {
 
         Location location = ((Player) sender).getLocation();
         config.set("lobby-loc.x", location.getX());
-        config.set("lobby-loc.y", location.getX());
-        config.set("lobby-loc.z", location.getX());
-        config.set("lobby-loc.pitch", location.getX());
-        config.set("lobby-loc.yaw", location.getX());
+        config.set("lobby-loc.y", location.getY());
+        config.set("lobby-loc.z", location.getZ());
+        config.set("lobby-loc.yaw", location.getYaw());
+        config.set("lobby-loc.pitch", location.getPitch());
+    config.set("lobby-loc.world", location.getWorld());
+        plugin.saveConfig();
         spawnLocation = location;
-        sender.sendMessage(ChatColor.DARK_AQUA + "Successfully set spawn location to " + ChatColor.DARK_GREEN + location.toString());
+        sender.sendMessage(ChatColor.DARK_AQUA + "Successfully set spawn location to " + ChatColor.DARK_GREEN + (int) location.getX() + ", " + (int) location.getY() + ", " + (int) location.getZ() + ", " + (int) location.getYaw() + ", " + (int) location.getPitch());
 
         return true;
     }

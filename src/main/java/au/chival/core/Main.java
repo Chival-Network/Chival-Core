@@ -29,16 +29,10 @@ public final class Main extends JavaPlugin {
 
     public static Plugin plugin;
     public static FileConfiguration config;
-
-    //add database
     public static Location spawnLocation;
 
     @Override
     public void onEnable() {
-
-        if (spawnLocation == null) {
-            spawnLocation = new Location(Bukkit.getWorld("world"), 0, 64, 0);
-        }
 
         plugin = this;
 
@@ -83,6 +77,8 @@ public final class Main extends JavaPlugin {
         this.saveConfig();
 
         config = this.getConfig();
+
+        this.spawnLocation = new Location(Bukkit.getWorld(String.valueOf(config.get("lobby-loc.world"))), config.getDouble("lobby-loc.x"), config.getDouble("lobby-loc.y"), config.getDouble("lobby-loc.z"), (float) config.getDouble("lobby-loc.yaw"), (float) config.getDouble("lobby-loc.pitch"));
     }
 
     public void database() {
