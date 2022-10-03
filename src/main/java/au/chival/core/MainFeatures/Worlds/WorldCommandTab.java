@@ -71,7 +71,7 @@ public class WorldCommandTab implements CommandExecutor, TabExecutor {
             return tabComplete;
         }
 
-        if (args.length >= 3) {
+        if (args.length >= 4) {
 
             tabComplete.add("");
             return tabComplete;
