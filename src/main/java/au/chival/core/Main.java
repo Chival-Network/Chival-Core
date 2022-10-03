@@ -16,6 +16,7 @@ import au.chival.core.MainFeatures.Worlds.WorldCommandTab;
 import au.chival.core.QOL.Fly.FlyCommand;
 import au.chival.core.QOL.Fly.FlysCommand;
 import au.chival.core.QOL.Heal.HealCommand;
+import au.chival.core.QOL.Ride.RideListener;
 import au.chival.core.QOL.Speed.SpeedCommand;
 import au.chival.core.QOL.Sudo.SudoCommand;
 import au.chival.core.QOL.Vanish.VanishCommand;
@@ -62,6 +63,7 @@ public final class Main extends JavaPlugin {
         this.getCommand("rank").setTabCompleter(new RanksCommandTab());
 
         //listeners plugin.getServer().getPluginManager().registerEvents(new , plugin);
+        Bukkit.getPluginManager().registerEvents(new RideListener(),this);
         plugin.getServer().getPluginManager().registerEvents(new JoinListener(), plugin);
         plugin.getServer().getPluginManager().registerEvents(new ChatListener(), plugin);
         plugin.getServer().getPluginManager().registerEvents(new PlayerDeathListener(), plugin);
