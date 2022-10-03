@@ -24,6 +24,7 @@ public class ReportCommandTab implements CommandExecutor, TabExecutor {
             return true;
         }
 
+
         Player player = Bukkit.getPlayer(args[0]);
 
         args[0] = "";

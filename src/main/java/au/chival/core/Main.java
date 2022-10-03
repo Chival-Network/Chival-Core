@@ -14,6 +14,7 @@ import au.chival.core.MainFeatures.Help.HelpCommand;
 import au.chival.core.MainFeatures.Ranks.RanksCommand;
 import au.chival.core.MainFeatures.Report.ReportCommandTab;
 import au.chival.core.MainFeatures.Lobby.Spawning.SetSpawnCommand;
+import au.chival.core.QOL.Ride.RideCommand;
 import au.chival.core.QOL.Speed.SpeedCommand;
 import au.chival.core.QOL.Sudo.SudoCommand;
 import au.chival.core.MainFeatures.ToLobby.ToLobbyCommand;
@@ -33,6 +34,8 @@ public final class Main extends JavaPlugin {
 
     @Override
     public void onEnable() {
+        System.out.println("[ppRide] - Successfully started");
+        Bukkit.getPluginManager().registerEvents(new RideCommand(),this);
 
         plugin = this;
 
