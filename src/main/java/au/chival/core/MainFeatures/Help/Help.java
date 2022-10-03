@@ -3,8 +3,6 @@ package au.chival.core.MainFeatures.Help;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 
-import static au.chival.core.Main.plugin;
-
 public class Help {
 
     Player player;

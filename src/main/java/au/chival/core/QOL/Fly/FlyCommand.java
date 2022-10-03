@@ -1,7 +1,6 @@
 package au.chival.core.QOL.Fly;
 
 import au.chival.core.Util.Errors.Errors;
-import au.chival.core.Util.Util;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;

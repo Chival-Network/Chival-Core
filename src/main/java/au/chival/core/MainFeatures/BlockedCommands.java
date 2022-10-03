@@ -1,14 +1,12 @@
-package au.chival.core.MainFeatures.Help;
+package au.chival.core.MainFeatures;
 
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
-import org.bukkit.entity.Player;
 
-public class HelpCommand implements CommandExecutor {
+public class BlockedCommands implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {
-        new Help((Player) commandSender, null);
         return true;
     }
 }

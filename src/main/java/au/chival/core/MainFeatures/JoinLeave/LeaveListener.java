@@ -9,6 +9,7 @@ public class LeaveListener implements Listener {
 
     @EventHandler
     public void onLeave(PlayerQuitEvent event) {
+        event.setQuitMessage(null);
         event.getPlayer().sendMessage(ChatColor.AQUA + "Thanks for playing on " + ChatColor.DARK_GREEN + "MC.Chival.AU");
     }
 }

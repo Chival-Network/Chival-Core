@@ -1,9 +1,13 @@
 debug: false
-lobby-server: "LA1"
+lobby-server: 'LA1'
 lobby-loc:
-  world: "world"
+  world: 'world'
   x: 0
   y: 64
   z: 0
   yaw: 0
   pitch: 0
+database:
+  url: '123'
+  user: '123'
+  password: '123'
