@@ -7,6 +7,9 @@ commands:
   sudo:
     description: /sudo
     aliases: /s
+  worlds:
+    description: /worlds <create/player/world> <world/action>
+    aliases: w
   lobby:
     description: /lobby
     aliases: [hub, l, zoo]

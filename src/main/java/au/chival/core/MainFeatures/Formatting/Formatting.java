@@ -43,17 +43,16 @@ public class Formatting {
     }
 
     public void update() {
-        String prefixes = luckPermUser.getCachedData().getMetaData().getPrefix();
-        tabAPI.getTeamManager().setPrefix(tabPlayer, prefixes);
-        tabAPI.getTablistFormatManager().setPrefix(tabPlayer, prefixes);
-        Bukkit.getPlayer(uuid).setDisplayName(prefixes);
+        tabAPI.getTeamManager().setPrefix(tabPlayer, prefix);
+        tabAPI.getTablistFormatManager().setPrefix(tabPlayer, prefix);
+        Bukkit.getPlayer(uuid).setDisplayName(prefix);
     }
 
     public void addPrefix(String newPrefix) {
 
         tabAPI.getTeamManager().setPrefix(tabPlayer, newPrefix + prefix);
         tabAPI.getTablistFormatManager().setPrefix(tabPlayer, newPrefix + prefix);
-        Bukkit.getPlayer(uuid).setDisplayName(newPrefix + prefix);
+        Bukkit.getPlayer(uuid).setDisplayName(newPrefix + prefix + Bukkit.getPlayer(uuid).getName());
     }
 
     public void Tab(String[] headerFooter) {

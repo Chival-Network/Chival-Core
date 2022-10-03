@@ -1,7 +1,7 @@
 package au.chival.core.QOL.Vanish;
 
-import au.chival.core.Util.Errors.Errors;
 import au.chival.core.MainFeatures.Formatting.Formatting;
+import au.chival.core.Util.Errors.Errors;
 import au.chival.core.Util.Util;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;

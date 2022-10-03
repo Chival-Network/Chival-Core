@@ -30,7 +30,7 @@ public class SetSpawnCommand implements CommandExecutor {
         config.set("lobby-loc.z", location.getZ());
         config.set("lobby-loc.yaw", location.getYaw());
         config.set("lobby-loc.pitch", location.getPitch());
-    config.set("lobby-loc.world", location.getWorld());
+        config.set("lobby-loc.world", location.getWorld());
         plugin.saveConfig();
         spawnLocation = location;
         sender.sendMessage(ChatColor.DARK_AQUA + "Successfully set spawn location to " + ChatColor.DARK_GREEN + (int) location.getX() + ", " + (int) location.getY() + ", " + (int) location.getZ() + ", " + (int) location.getYaw() + ", " + (int) location.getPitch());
